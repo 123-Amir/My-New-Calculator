@@ -18,8 +18,16 @@
                 <span>Categories <i class="fa-solid fa-chevron-down"></i></span>
                 <div class="dropdown-content">
                     <ul class="dropdown-list">
-                        <li><a href="#">Financial Calculator</a>
-                            <ul class="dropdown-list">
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Scientific Calculators</a>
+                            <ul class="sub-dropdown-list">
+                                <li><a href="#">Basic Scientific Calculator</a></li>
+                                <li><a href="#">Advanced Scientific Calculator</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Financial Calculators</a>
+                            <ul class="sub-dropdown-list">
                                 <li><a href="#">Simple Interest Calculator</a></li>
                                 <li><a href="#">Compound Interest Calculator</a></li>
                                 <li><a href="#">Currency Calculator</a></li>
@@ -27,18 +35,11 @@
                                 <li><a href="#">Retirement Calculator</a></li>
                                 <li><a href="#">Sales and Tax Calculator</a></li>
                                 <li><a href="#">Investment Calculator</a></li>
-                            </ul></li>
-
-                        <li><a href="#">Health and Fitness Calculator</a>
-                            <ul class="dropdown-list">
-                                <li><a href="#">BMI Calculator</a></li>
-                                <li><a href="#">BMR Calculator</a></li>
-                                <li><a href="#">Calorie Calculator</a></li>
-                                <li><a href="#">Body Fat Calculator</a></li>
-                                <li><a href="#">Ideal Weight Calculator</a></li>
-                            </ul></li>
-                        <li><a href="#">Conversion Calculator</a>
-                            <ul class="dropdown-list">
+                            </ul>
+                        </li>
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Conversion Calculators</a>
+                            <ul class="sub-dropdown-list">
                                 <li><a href="#">Length Calculator</a></li>
                                 <li><a href="#">Age Calculator</a></li>
                                 <li><a href="#">Hour to Minute & Seconds Calculator</a></li>
@@ -47,23 +48,21 @@
                                 <li><a href="#">Height Calculator</a></li>
                                 <li><a href="#">Password Generator</a></li>
                                 <li><a href="#">Bill and Tip Calculator</a></li>
-                            </ul></li>
-                        <li><a href="#">Geometry Calculator</a>
-                            <ul class="dropdown-list">
-                                <li><a href="#">2D Distance Calculator</a></li>
-                                <li><a href="#">3D Distance Calculator</a></li>
-                                <li><a href="#">Equilateral Triangle Calculator</a></li>
-                                <li><a href="#">Isoceles Triangle Calculator</a></li>
-                                <li><a href="#">Right-Angled Triangle Calculator</a></li>
-                                <li><a href="#">Cube Calculator</a></li>
-                                <li><a href="#">Cone Calculator</a></li>
-                                <li><a href="#">Circle Calculator</a></li>
-                                <li><a href="#">Cylindrical Calculator</a></li>
-                                <li><a href="#">Square Calculator</a></li>
-                                <li><a href="#">Sphere Calculator</a></li>
-                            </ul></li>
-                        <li><a href="#">Math & Algebra Calculator</a>
-                            <ul class="dropdown-list">
+                            </ul>
+                        </li>
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Health and Fitness Calculators</a>
+                            <ul class="sub-dropdown-list">
+                                <li><a href="#">BMI Calculator</a></li>
+                                <li><a href="#">BMR Calculator</a></li>
+                                <li><a href="#">Calorie Calculator</a></li>
+                                <li><a href="#">Body Fat Calculator</a></li>
+                                <li><a href="#">Ideal Weight Calculator</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Math and Algebra Calculators</a>
+                            <ul class="sub-dropdown-list">
                                 <li><a href="#">Complex Number Calculator</a></li>
                                 <li><a href="#">Boolean Algebra Simplifier</a></li>
                                 <li><a href="#">Partial Fraction Decomposer</a></li>
@@ -75,10 +74,28 @@
                                 <li><a href="#">Exponential Formulas Calculator</a></li>
                                 <li><a href="#">Cube of a Number Calculator</a></li>
                                 <li><a href="#">Cube Root Calculator</a></li>
-                            </ul></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-category">
+                            <a href="#" class="category-title">Geometry and Trigonometry Calculators</a>
+                            <ul class="sub-dropdown-list">
+                                <li><a href="#">2D Distance Calculator</a></li>
+                                <li><a href="#">3D Distance Calculator</a></li>
+                                <li><a href="#">Equilateral Triangle Calculator</a></li>
+                                <li><a href="#">Isosceles Triangle Calculator</a></li>
+                                <li><a href="#">Right-Angled Triangle Calculator</a></li>
+                                <li><a href="#">Cube Calculator</a></li>
+                                <li><a href="#">Cone Calculator</a></li>
+                                <li><a href="#">Circle Calculator</a></li>
+                                <li><a href="#">Cylindrical Calculator</a></li>
+                                <li><a href="#">Square Calculator</a></li>
+                                <li><a href="#">Sphere Calculator</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
+            
             <div class="nav-item search-form-container">
                 <form action="#">
                     <input type="text" placeholder="Search for Categories">
@@ -86,6 +103,9 @@
                 </form>
             </div>
             <ul class="nav-right">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="" class="btn">Login</a></li>
                 <li class="nav-item"><a href="" class="btn btn-highlight">Sign Up</a></li>
             </ul>
@@ -94,38 +114,44 @@
     <section class="calculator-categories">
         <div class="calculator1">
             <div class="calculator-thumbnail" id="1">
-                <img src="#" alt="Scientific Calculator">
+                <p>Scientific Calculator</p>
+                <img src="scientific.avif" alt="Scientific Calculator">
             </div>
         </div>
         <div class="calculator1">
             <div class="calculator-thumbnail" id="2">
-                <img src="#" alt="Financial Calculator">
+                <p>Financial Calculator</p>
+                <img src="scientific.avif" alt="Financial Calculator">
             </div>
         </div>
         <div class="calculator1">
             <div class="calculator-thumbnail" id="3">
-                <img src="#" alt="Conversion Calculator">
+                <p>Conversion Calculator</p>
+                <img src="scientific.avif" alt="Conversion Calculator">
             </div>
         </div>
         <div class="calculator1">
             <div class="calculator-thumbnail" id="4">
-                <img src="#" alt="Health and Fitness Calculator">
+                <p>Health and Fitness Calculator</p>
+                <img src="scientific.avif" alt="Health and Fitness Calculator">
             </div>
         </div>
         <div class="calculator1">
             <div class="calculator-thumbnail" id="5">
-                <img src="#" alt="Math & Algebra Calculator">
+                <p>Math & Algebra Calculator</p>
+                <img src="scientific.avif" alt="Math & Algebra Calculator">
             </div>
         </div>
         
         <div class="calculator1">
             <div class="calculator-thumbnail" id="6">
-                <img src="#" alt="Geometry & Trigonometry Calculator">
+                <p>Geometry & Trigonometry Calculator</p>
+                <img src="scientific.avif" alt="Geometry & Trigonometry Calculator">
             </div>
         </div>
        
         </section>
         
-   
+   <script src="script.js"></script>
 </body>
 </html>
