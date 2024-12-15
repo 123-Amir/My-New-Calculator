@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    
+}
+ul li{
+    list-style-type: none;
+}
+body{
+    background-color: rgb(166, 255, 248);
+}
+/* style header */
+.main-header {
+    background: linear-gradient(90deg, rgb(41, 147, 155), rgb(87, 58, 180));
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-item {
+    margin: 0 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown span {
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10;
+    width: 200px;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-list li {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-list li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-list li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+}
+
+.dropdown-list li a:hover {
+    color: rgb(155, 41, 130);
+}
+
+/* Search Form */
+.search-form-container {
+    flex: 1;
+    margin: 0 2rem;
+    position: relative;
+}
+
+.search-form-container form {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-form-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.search-form-container button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    background-color: white;
+    color: rgb(155, 41, 130);
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: 0.3s;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: rgb(155, 41, 130);
+    color: white;
+    border: 1px solid rgb(155, 41, 130);
+}
+
+.btn-highlight {
+    background-color: rgb(87, 58, 180);
+    color: white;
+}
+
+/* style calculator section */
+
+.calculator-categories {
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding: 10px;
+    gap: 0; 
+    scrollbar-width: thin; 
+}
+
+.calculator1 {
+    display: inline-block; 
+    margin: 0; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    min-width: 250px;
+}
+.calculator1:hover {
+    transform: scale(1.05);
+}
+
+.calculator-thumbnail img {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
