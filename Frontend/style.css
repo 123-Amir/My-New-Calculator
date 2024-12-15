@@ -1,27 +1,37 @@
-*{
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
     line-height: 1.2;
-    
+    box-sizing: border-box;
 }
-ul li{
+
+ul li {
     list-style-type: none;
 }
-body{
+
+body {
     background-color: rgb(166, 255, 248);
+    font-family: Arial, sans-serif;
 }
-/* style header */
+
+/* =========================
+   Header and Navigation
+   ========================= */
+
 .main-header {
     background: linear-gradient(90deg, rgb(41, 147, 155), rgb(87, 58, 180));
     padding: 1rem 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .nav-item {
     margin: 0 1rem;
     cursor: pointer;
@@ -33,7 +43,10 @@ body{
     align-items: center;
 }
 
-/* Dropdown Menu */
+/* =========================
+   Dropdown Menu
+   ========================= */
+
 .nav-dropdown {
     position: relative;
 }
@@ -43,43 +56,93 @@ body{
     cursor: pointer;
     display: flex;
     align-items: center;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
+
+.nav-dropdown span:hover {
+    color: rgb(155, 41, 130);
+}
+
+/* Dropdown Content Styling */
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     z-index: 10;
-    width: 200px;
+    width: 250px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
+/* Show Dropdown on Hover */
 .nav-dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Main Category Styling */
+.dropdown-category {
+    border-bottom: 1px solid #eee;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-category:hover {
+    background: rgb(245, 245, 245);
+}
+
+.category-title {
+    font-weight: bold;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.category-title:hover {
+    color: rgb(87, 58, 180);
+}
+
+/* Sub-Category List Styling */
+.sub-dropdown-list {
+    display: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    background: #f9f9f9;
+    border-left: 3px solid rgb(87, 58, 180);
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-category.active .sub-dropdown-list {
     display: block;
 }
 
-.dropdown-list li {
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid #f0f0f0;
+/* Sub-Category Links */
+.sub-dropdown-list li {
+    padding: 0.5rem 0;
 }
 
-.dropdown-list li:last-child {
-    border-bottom: none;
-}
-
-.dropdown-list li a {
-    text-decoration: none;
+.sub-dropdown-list a {
     color: #555;
-    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.dropdown-list li a:hover {
+.sub-dropdown-list a:hover {
     color: rgb(155, 41, 130);
 }
 
-/* Search Form */
+/* =========================
+   Search Form
+   ========================= */
+
 .search-form-container {
     flex: 1;
     margin: 0 2rem;
@@ -111,7 +174,10 @@ body{
     color: #555;
 }
 
-/* Buttons */
+/* =========================
+   Buttons
+   ========================= */
+
 .btn {
     background-color: white;
     color: rgb(155, 41, 130);
@@ -134,34 +200,86 @@ body{
     color: white;
 }
 
-/* style calculator section */
+/* Navigation Links Styling */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
 
-.calculator-categories {
-    overflow-x: auto; 
-    white-space: nowrap;
+.nav-link:hover {
+    color: rgb(155, 41, 130);
+}
+
+/* =========================
+   Calculator Categories Section
+   ========================= */
+
+   .calculator-categories {
+    display: flex;              /* Use flexbox to layout the cards in a row */
+    justify-content: space-between; /* Space between the cards */
+    flex-wrap: wrap;            /* Allow wrapping */
+    overflow: hidden;           /* Hide excess cards */
     padding: 10px;
-    gap: 0; 
-    scrollbar-width: thin; 
 }
 
 .calculator1 {
-    display: inline-block; 
-    margin: 0; 
+    flex: 1 1 30%;              /* Each card takes up 30% of the container */
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    min-width: 250px;
+    min-width: 250px;           /* Minimum width of each card */
+    max-width: 320px;           /* Optional: Adjust the max-width if needed */
 }
+
 .calculator1:hover {
     transform: scale(1.05);
 }
 
 .calculator-thumbnail img {
-    width: 200px;
+    width: 100%;                /* Adjust width to fill the container */
     height: 150px;
     border-radius: 8px;
     object-fit: cover;
+}
+
+/* =========================
+   Responsive Design for smaller screens
+   ========================= */
+@media (max-width: 768px) {
+    .calculator-categories {
+        justify-content: center;   /* Center the cards on smaller screens */
+    }
+
+    .calculator1 {
+        flex: 1 1 45%;              /* Allow the cards to take up more space */
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator1 {
+        flex: 1 1 100%;             /* Allow cards to stack in one column */
+    }
+}
+
+/* =========================
+   Animations
+   ========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
