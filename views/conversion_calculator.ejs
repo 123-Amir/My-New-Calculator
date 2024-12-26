@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Calculators</title>
+    <link rel="stylesheet" href="conversion_calculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conversion Calculators</h1>
+
+        <!-- Length Calculator -->
+        <div class="calculator">
+            <h2>Length Converter</h2>
+            <input type="number" id="length-value" placeholder="Enter length">
+            <select id="length-from-unit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="millimeters">Millimeters</option>
+                <option value="inches">Inches</option>
+                <option value="feet">Feet</option>
+                <option value="yards">Yards</option>
+                <option value="miles">Miles</option>
+            </select>
+            <select id="length-to-unit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="millimeters">Millimeters</option>
+                <option value="inches">Inches</option>
+                <option value="feet">Feet</option>
+                <option value="yards">Yards</option>
+                <option value="miles">Miles</option>
+            </select>
+            <button onclick="convertLength()">Convert</button>
+            <p id="length-result"></p>
+        </div>
+
+        <!-- Age Calculator -->
+        <div class="calculator">
+            <h2>Age Calculator</h2>
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate">
+            <button onclick="calculateAge()">Calculate Age</button>
+            <p id="age-result"></p>
+        </div>
+
+        <!-- Hour to Minute & Seconds -->
+        <div class="calculator">
+            <h2>Hour to Minute & Seconds</h2>
+            <input type="number" id="hours" placeholder="Enter hours">
+            <button onclick="convertHours()">Convert</button>
+            <p id="hours-result"></p>
+        </div>
+
+        <!-- Date Calculator -->
+        <div class="calculator">
+            <h2>Date Duration Calculator</h2>
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+            <button onclick="calculateDateDuration()">Calculate Duration</button>
+            <p id="date-result"></p>
+        </div>
+
+        <!-- GPA Calculator -->
+        <div class="calculator">
+            <h2>GPA Calculator</h2>
+            <input type="text" id="courses" placeholder="Courses (comma-separated)">
+            <input type="text" id="credits" placeholder="Credits (comma-separated)">
+            <input type="text" id="grades" placeholder="Grades (comma-separated)">
+            <button onclick="calculateGPA()">Calculate GPA</button>
+            <p id="gpa-result"></p>
+        </div>
+
+        <!-- Height Calculator -->
+        <div class="calculator">
+            <h2>Height Converter</h2>
+            <input type="number" id="height-value" placeholder="Enter height">
+            <select id="height-from-unit">
+                <option value="meters">Meters</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+            </select>
+            <select id="height-to-unit">
+                <option value="meters">Meters</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+            </select>
+            <button onclick="convertHeight()">Convert</button>
+            <p id="height-result"></p>
+        </div>
+
+        <!-- Password Generator -->
+        <div class="calculator">
+            <h2>Password Generator</h2>
+            <input type="number" id="password-length" placeholder="Password length">
+            <label><input type="checkbox" id="password-symbols"> Include Symbols</label>
+            <label><input type="checkbox" id="password-numbers"> Include Numbers</label>
+            <label><input type="checkbox" id="password-uppercase"> Include Uppercase</label>
+            <button onclick="generatePassword()">Generate Password</button>
+            <p id="password-result"></p>
+        </div>
+
+        <!-- Bill and Tip Calculator -->
+        <div class="calculator">
+            <h2>Bill and Tip Calculator</h2>
+            <input type="number" id="bill-amount" placeholder="Bill Amount">
+            <input type="number" id="tip-percentage" placeholder="Tip Percentage">
+            <button onclick="calculateTotalBill()">Calculate Total</button>
+            <p id="bill-result"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

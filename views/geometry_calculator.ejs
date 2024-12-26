@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Calculators</title>
+    <link rel="stylesheet" href="geometry_calculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Geometry Calculators</h1>
+
+        <!-- 2D Distance Calculator -->
+        <div class="calculator">
+            <h2>2D Distance Calculator</h2>
+            <label for="point1-x">Point 1 X:</label>
+            <input type="number" id="point1-x" placeholder="Enter X1">
+            <label for="point1-y">Point 1 Y:</label>
+            <input type="number" id="point1-y" placeholder="Enter Y1">
+            <label for="point2-x">Point 2 X:</label>
+            <input type="number" id="point2-x" placeholder="Enter X2">
+            <label for="point2-y">Point 2 Y:</label>
+            <input type="number" id="point2-y" placeholder="Enter Y2">
+            <button onclick="calculate2DDistance()">Calculate Distance</button>
+            <div class="result" id="distance-2d-result"></div>
+        </div>
+
+        <!-- 3D Distance Calculator -->
+        <div class="calculator">
+            <h2>3D Distance Calculator</h2>
+            <label for="point1-z">Point 1 Z:</label>
+            <input type="number" id="point1-z" placeholder="Enter Z1">
+            <label for="point2-z">Point 2 Z:</label>
+            <input type="number" id="point2-z" placeholder="Enter Z2">
+            <button onclick="calculate3DDistance()">Calculate Distance</button>
+            <div class="result" id="distance-3d-result"></div>
+        </div>
+
+        <!-- Circle Calculator -->
+        <div class="calculator">
+            <h2>Circle Calculator</h2>
+            <label for="circle-radius">Radius:</label>
+            <input type="number" id="circle-radius" placeholder="Enter Radius">
+            <button onclick="calculateCircle()">Calculate</button>
+            <div class="result" id="circle-result"></div>
+        </div>
+
+        <!-- Equilateral Triangle Calculator -->
+        <div class="calculator">
+            <h2>Equilateral Triangle Calculator</h2>
+            <label for="triangle-side">Side Length:</label>
+            <input type="number" id="triangle-side" placeholder="Enter Side Length">
+            <button onclick="calculateEquilateralTriangle()">Calculate</button>
+            <div class="result" id="triangle-result"></div>
+        </div>
+
+        <!-- Isosceles Triangle Calculator -->
+        <div class="calculator">
+            <h2>Isosceles Triangle Calculator</h2>
+            <label for="isosceles-base">Base Length:</label>
+            <input type="number" id="isosceles-base" placeholder="Enter Base Length">
+            <label for="isosceles-side">Side Length:</label>
+            <input type="number" id="isosceles-side" placeholder="Enter Side Length">
+            <button onclick="calculateIsoscelesTriangle()">Calculate</button>
+            <div class="result" id="isosceles-result"></div>
+        </div>
+
+        <!-- Right-Angled Triangle Calculator -->
+        <div class="calculator">
+            <h2>Right-Angled Triangle Calculator</h2>
+            <label for="right-base">Base Length:</label>
+            <input type="number" id="right-base" placeholder="Enter Base Length">
+            <label for="right-height">Height Length:</label>
+            <input type="number" id="right-height" placeholder="Enter Height Length">
+            <button onclick="calculateRightAngledTriangle()">Calculate</button>
+            <div class="result" id="right-result"></div>
+        </div>
+
+        <!-- Cube Calculator -->
+        <div class="calculator">
+            <h2>Cube Calculator</h2>
+            <label for="cube-side">Side Length:</label>
+            <input type="number" id="cube-side" placeholder="Enter Side Length">
+            <button onclick="calculateCube()">Calculate</button>
+            <div class="result" id="cube-result"></div>
+        </div>
+
+        <!-- Cone Calculator -->
+        <div class="calculator">
+            <h2>Cone Calculator</h2>
+            <label for="cone-radius">Radius:</label>
+            <input type="number" id="cone-radius" placeholder="Enter Radius">
+            <label for="cone-height">Height:</label>
+            <input type="number" id="cone-height" placeholder="Enter Height">
+            <button onclick="calculateCone()">Calculate</button>
+            <div class="result" id="cone-result"></div>
+        </div>
+
+        <!-- Sphere Calculator -->
+        <div class="calculator">
+            <h2>Sphere Calculator</h2>
+            <label for="sphere-radius">Radius:</label>
+            <input type="number" id="sphere-radius" placeholder="Enter Radius">
+            <button onclick="calculateSphere()">Calculate</button>
+            <div class="result" id="sphere-result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

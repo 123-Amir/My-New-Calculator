@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+    <link rel="stylesheet" href="financial_calculator.css">
+</head>
+<body>
+    <header>
+        <h1>Financial Calculators</h1>
+    </header>
+
+    <main>
+        <!-- Simple Interest Calculator -->
+        <section class="financial-calculator">
+            <h2>Simple Interest Calculator</h2>
+            <form id="simple-interest-form">
+                <input type="number" id="si-principal" placeholder="Principal Amount">
+                <input type="number" id="si-rate" placeholder="Interest Rate (%)">
+                <input type="number" id="si-time" placeholder="Time (years)">
+                <button type="button" onclick="calculateSimpleInterest()">Calculate</button>
+                <p id="si-result"></p>
+            </form>
+        </section>
+
+        <!-- Compound Interest Calculator -->
+        <section class="financial-calculator">
+            <h2>Compound Interest Calculator</h2>
+            <form id="compound-interest-form">
+                <input type="number" id="ci-principal" placeholder="Principal Amount">
+                <input type="number" id="ci-rate" placeholder="Interest Rate (%)">
+                <input type="number" id="ci-time" placeholder="Time (years)">
+                <select id="ci-frequency">
+                    <option value="1">Annually</option>
+                    <option value="4">Quarterly</option>
+                    <option value="12">Monthly</option>
+                </select>
+                <button type="button" onclick="calculateCompoundInterest()">Calculate</button>
+                <p id="ci-result"></p>
+            </form>
+        </section>
+
+        <!-- Currency Calculator -->
+        <section class="financial-calculator">
+            <h2>Currency Calculator</h2>
+            <form id="currency-converter-form">
+                <input type="number" id="currency-amount" placeholder="Amount">
+                <select id="currency-from">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+                <select id="currency-to">
+                    <option value="INR">INR</option>
+                    <option value="GBP">GBP</option>
+                </select>
+                <button type="button" onclick="convertCurrency()">Convert</button>
+                <p id="currency-result"></p>
+            </form>
+        </section>
+
+        <!-- Salary Calculator -->
+        <section class="financial-calculator">
+            <h2>Salary Calculator</h2>
+            <form id="salary-calculator-form">
+                <input type="number" id="gross-salary" placeholder="Gross Salary">
+                <input type="number" id="deductions" placeholder="Deductions">
+                <input type="number" id="bonuses" placeholder="Bonuses">
+                <button type="button" onclick="calculateNetSalary()">Calculate</button>
+                <p id="salary-result"></p>
+            </form>
+        </section>
+
+        <!-- Retirement Calculator -->
+        <section class="financial-calculator">
+            <h2>Retirement Calculator</h2>
+            <form id="retirement-form">
+                <input type="number" id="current-age" placeholder="Current Age">
+                <input type="number" id="retirement-age" placeholder="Retirement Age">
+                <input type="number" id="savings" placeholder="Current Savings">
+                <input type="number" id="return-rate" placeholder="Expected Return Rate (%)">
+                <button type="button" onclick="calculateRetirementCorpus()">Calculate</button>
+                <p id="retirement-result"></p>
+            </form>
+        </section>
+
+        <!-- Sales and Tax Calculator -->
+        <section class="financial-calculator">
+            <h2>Sales and Tax Calculator</h2>
+            <form id="sales-tax-form">
+                <input type="number" id="price" placeholder="Price">
+                <input type="number" id="tax-rate" placeholder="Tax Rate (%)">
+                <button type="button" onclick="calculateSalesTax()">Calculate</button>
+                <p id="sales-tax-result"></p>
+            </form>
+        </section>
+
+        <!-- Investment Calculator -->
+        <section class="financial-calculator">
+            <h2>Investment Calculator</h2>
+            <form id="investment-form">
+                <input type="number" id="initial-investment" placeholder="Initial Investment">
+                <input type="number" id="contributions" placeholder="Periodic Contributions">
+                <input type="number" id="investment-return-rate" placeholder="Return Rate (%)">
+                <input type="number" id="investment-time" placeholder="Time (years)">
+                <button type="button" onclick="calculateInvestmentReturns()">Calculate</button>
+                <p id="investment-result"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
