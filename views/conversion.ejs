@@ -3,15 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversion Calculators</title>
+    <title>All-In-One Conversion Calculators</title>
     <link rel="stylesheet" href="conversion_calculator.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Conversion Calculators</h1>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="/"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
+    </header>
+    <!-- Header Section End -->
 
+    <!-- Section Feature -->
+    <section class="features">
+        <div>
+            <h1 class="section-title">All Calculators</h1>
+        </div>
+        <div class="services-container">
+            <!-- Length Calculator -->
+            <div class="services" data-target="length-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/length.png" alt="Length Calculator"></a>
+                </div>
+                <h3 class="services-title">Length Calculator</h3>
+            </div>
+
+            <!-- Age Calculator -->
+            <div class="services" data-target="age-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/age.jpeg" alt="Age Calculator"></a>
+                </div>
+                <h3 class="services-title">Age Calculator</h3>
+            </div>
+
+            <!-- Hour to Minute & Seconds -->
+            <div class="services" data-target="HM-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/HM.jpeg" alt="Hour to Minute & Seconds"></a>
+                </div>
+                <h3 class="services-title">Hour to Minute & Seconds</h3>
+            </div>
+
+            <!-- Date Calculator -->
+            <div class="services" data-target="date-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/date.png" alt="Date Calculator"></a>
+                </div>
+                <h3 class="services-title">Date Calculator</h3>
+            </div>
+
+            <!-- GPA Calculator -->
+            <div class="services" data-target="GPA-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/gpa.jpeg" alt="GPA Calculator"></a>
+                </div>
+                <h3 class="services-title">GPA Calculator</h3>
+            </div>
+
+            <!-- Height Calculator -->
+            <div class="services" data-target="height-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/height.jpeg" alt="Height Calculator"></a>
+                </div>
+                <h3 class="services-title">Height Calculator</h3>
+            </div>
+
+            <!-- Password Generator -->
+            <div class="services" data-target="pwd-generator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/PWD.jpeg" alt="Password Generator"></a>
+                </div>
+                <h3 class="services-title">Password Generator</h3>
+            </div>
+
+            <!-- Bill and Tip Calculator -->
+            <div class="services" data-target="bill-tip-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/BT.jpeg" alt="Bill & Tip Calculator"></a>
+                </div>
+                <h3 class="services-title">Bill & Tip Calculator</h3>
+            </div>
+        </div>
+    </section>
+    <!-- Section Feature End -->
+
+    <!-- Main Section -->
+    <main>
         <!-- Length Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="length-calculator">
             <h2>Length Converter</h2>
             <input type="number" id="length-value" placeholder="Enter length">
             <select id="length-from-unit">
@@ -39,7 +126,7 @@
         </div>
 
         <!-- Age Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="age-calculator">
             <h2>Age Calculator</h2>
             <label for="birthdate">Birthdate:</label>
             <input type="date" id="birthdate">
@@ -48,7 +135,7 @@
         </div>
 
         <!-- Hour to Minute & Seconds -->
-        <div class="calculator">
+        <div class="calculator" id="HM-calculator">
             <h2>Hour to Minute & Seconds</h2>
             <input type="number" id="hours" placeholder="Enter hours">
             <button onclick="convertHours()">Convert</button>
@@ -56,7 +143,7 @@
         </div>
 
         <!-- Date Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="date-calculator">
             <h2>Date Duration Calculator</h2>
             <label for="start-date">Start Date:</label>
             <input type="date" id="start-date">
@@ -67,7 +154,7 @@
         </div>
 
         <!-- GPA Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="GPA-calculator">
             <h2>GPA Calculator</h2>
             <input type="text" id="courses" placeholder="Courses (comma-separated)">
             <input type="text" id="credits" placeholder="Credits (comma-separated)">
@@ -75,9 +162,9 @@
             <button onclick="calculateGPA()">Calculate GPA</button>
             <p id="gpa-result"></p>
         </div>
-
+        
         <!-- Height Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="height-calculator">
             <h2>Height Converter</h2>
             <input type="number" id="height-value" placeholder="Enter height">
             <select id="height-from-unit">
@@ -97,7 +184,7 @@
         </div>
 
         <!-- Password Generator -->
-        <div class="calculator">
+        <div class="calculator" id="pwd-generator">
             <h2>Password Generator</h2>
             <input type="number" id="password-length" placeholder="Password length">
             <label><input type="checkbox" id="password-symbols"> Include Symbols</label>
@@ -108,14 +195,23 @@
         </div>
 
         <!-- Bill and Tip Calculator -->
-        <div class="calculator">
+        <div class="calculator" id="bill-tip-calculator">
             <h2>Bill and Tip Calculator</h2>
             <input type="number" id="bill-amount" placeholder="Bill Amount">
             <input type="number" id="tip-percentage" placeholder="Tip Percentage">
             <button onclick="calculateTotalBill()">Calculate Total</button>
             <p id="bill-result"></p>
         </div>
-    </div>
+    </main>
+    <!-- Main Section End -->
+
+    <!-- Footer Section -->
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    </footer>
+    <!-- Footer Section End -->
+
     <script src="script.js"></script>
 </body>
 </html>

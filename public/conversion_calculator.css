@@ -1,9 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial , sans-serif;
+    background: #f4f7f9;
     color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+header {
+    width: 100%;
+    height: 3rem;
+    background-color: #004d40;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logo-text {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: #a8dadc;
+    font-weight: bold;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+}
+
+header ul li {
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header ul li a:hover {
+    color: #457b9d;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .container {
@@ -15,12 +78,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    color: #4CAF50;
-}
-
 .calculator {
+    display: none;
     margin: 20px 0;
     padding: 20px;
     background: #f9f9f9;
@@ -58,4 +117,102 @@ h1 {
 .calculator p {
     margin-top: 10px;
     font-weight: bold;
+}
+
+/* sevice container */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.services {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.services:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services-icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.services-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.features {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+/* footer section */
+footer {
+    width: 100%;
+    background-color: #004d40;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    color: #a8dadc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    .financial-calculator {
+        padding: 15px;
+    }
+
+    .financial-calculator h2 {
+        font-size: 1.4rem;
+    }
+
+    .financial-calculator button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .financial-calculator input, .financial-calculator select {
+        font-size: 1rem;
+        padding: 8px;
+    }
 }

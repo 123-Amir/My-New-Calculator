@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="scientific_calculator.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="/"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <section class="calculator">
+            <div class="display">
+                <input type="text" id="result" disabled />
+            </div>
+            <div class="buttons">
+                <button class="btn" onclick="clearDisplay()">C</button>
+                <button class="btn" onclick="appendNumber('1')">1</button>
+                <button class="btn" onclick="appendNumber('2')">2</button>
+                <button class="btn" onclick="appendNumber('3')">3</button>
+                <button class="btn" onclick="appendNumber('4')">4</button>
+                <button class="btn" onclick="appendNumber('5')">5</button>
+                <button class="btn" onclick="appendNumber('6')">6</button>
+                <button class="btn" onclick="appendNumber('7')">7</button>
+                <button class="btn" onclick="appendNumber('8')">8</button>
+                <button class="btn" onclick="appendNumber('9')">9</button>
+                <button class="btn" onclick="appendNumber('0')">0</button>
+                <button class="btn operator" onclick="appendOperator('+')">+</button>
+                <button class="btn operator" onclick="appendOperator('-')">-</button>
+                <button class="btn operator" onclick="appendOperator('*')">*</button>
+                <button class="btn operator" onclick="appendOperator('/')">/</button>
+                <button class="btn operator" onclick="appendOperator('%')">%</button>
+                <button class="btn function" onclick="appendFunction('sqrt')">√</button>
+                <button class="btn function" onclick="appendFunction('pow')">x²</button>
+                <button class="btn function" onclick="appendFunction('sin')">sin</button>
+                <button class="btn function" onclick="appendFunction('cos')">cos</button>
+                <button class="btn function" onclick="appendFunction('tan')">tan</button>
+                <button class="btn function" onclick="appendFunction('log')">log</button>
+                <button class="btn function" onclick="appendFunction('ln')">ln</button>
+                <button class="btn" onclick="appendParenthesis('(')">(</button>
+                <button class="btn" onclick="appendParenthesis(')')">)</button>
+                <button class="btn" onclick="calculate()">=</button>
+                <button class="btn" onclick="memoryAdd()">M+</button>
+                <button class="btn" onclick="memorySubtract()">M-</button>
+                <button class="btn" onclick="memoryRecall()">MR</button>
+                <button class="btn" onclick="memoryClear()">MC</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

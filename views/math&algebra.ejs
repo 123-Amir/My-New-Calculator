@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math and Algebra Calculators</title>
+    <link rel="stylesheet" href="maths&algebra_calculator.css">
+</head>
+<body>
+      <!-- header section -->
+      <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="/"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
+    </header>
+    <!-- header section end-->
+     <!-- Section Feature -->
+     <section class="features">
+        <div>
+            <h1 class="section-title">GEOMETRY CALCULATORS</h1>
+        </div>
+        <div class="services-container">
+            
+            <!-- Complex Number Feature -->
+           <div class="services" data-target="CN-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/CN.jpeg" alt="CN Calculator" /></a>
+            </div>
+            <h3 class="services-title">Complex Number Calculator</h3>
+           </div>
+
+           <!--Boolean Algebra Simplifier Feature-->
+           <div class="services" data-target="BA-simplifier">
+            <div class="services-icon">
+                <a href="#"><img src="images/BA.png" alt="BA Simplifier" /></a>
+            </div>
+            <h3 class="services-title">Boolean Algebra Simplifier</h3>
+           </div>
+
+            <!-- Partial Fraction Decomposer -->
+           <div class="services" data-target="PF-decomposer">
+            <div class="services-icon">
+                <a href="#"><img src="images/PF.jpeg" alt="PF decomposer" /></a>
+            </div>
+            <h3 class="services-title">Partial Fraction Decomposer </h3>
+           </div>
+
+           <!--  Inequality Calculator Feature -->
+           <div class="services" data-target="inequality-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/ineq.png" alt=" Inequality Calculator" /></a>
+            </div>
+            <h3 class="services-title"> Inequality Calculator</h3>
+           </div>
+
+           <!-- Flow Rate Calculator Feature-->
+           <div class="services" data-target="FR-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/fr.jpeg" alt="FR Calculator" /></a>
+            </div>
+            <h3 class="services-title">Flow Rate Calculator</h3>
+           </div>
+
+           <!-- Impulse Calculator Feature-->
+           <div class="services" data-target="impulse-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/impulse.png" alt="Impulse Calculator" /></a>
+            </div>
+            <h3 class="services-title">Impulse Calculator</h3>
+           </div>
+        
+           <!-- Factorization Calculator Feature-->
+           <div class="services" data-target="Factorization-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/Fac.png" alt="Factorization Calculator" /></a>
+            </div>
+            <h3 class="services-title">Factorization Calculator</h3>
+           </div>
+
+           <!-- Percentage Calculator Feature-->
+           <div class="services" data-target="percentage-calculator">
+            <div class="services-icon">
+                <a href="#"><img src="images/PER.jpeg" alt="Percentage Calculator" /></a>
+            </div>
+            <h3 class="services-title"> Percentage Calculator</h3>
+           </div>
+
+            <!-- Exponential Formulas Calculator -->
+            <div class="services" data-target="Ex-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/Ex.png" alt="Percentage Calculator" /></a>
+                </div>
+                <h3 class="services-title"> Percentage Calculator</h3>
+            </div>
+
+            <!-- Cube of a number Calculator -->
+            <div class="services" data-target="cube-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/cube3.png" alt="Cube Calculator" /></a>
+                </div>
+                <h3 class="services-title"> Cube Calculator</h3>
+            </div>
+
+            <!--Cube root Calculator -->
+            <div class="services" data-target="CR-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/cr.png" alt=" Cube Root Calculator" /></a>
+                </div>
+                <h3 class="services-title"> Cube Root Calculator</h3>
+            </div>
+            
+        </div>   
+    </section>
+    <!-- Section Feature end -->
+
+    <!-- Main Section -->
+    <main style="display: none;">
+        <div class="container">
+            <h1>Math and Algebra Calculators</h1>
+            
+            <!-- Complex Number Calculator -->
+            <div class="calculator" id="CN-calculator">
+                <h2>Complex Number Calculator</h2>
+                <label for="real1">Real Part (Complex 1):</label>
+                <input type="number" id="real1" placeholder="Enter Real Part 1">
+                <label for="imag1">Imaginary Part (Complex 1):</label>
+                <input type="number" id="imag1" placeholder="Enter Imaginary Part 1">
+                <label for="real2">Real Part (Complex 2):</label>
+                <input type="number" id="real2" placeholder="Enter Real Part 2">
+                <label for="imag2">Imaginary Part (Complex 2):</label>
+                <input type="number" id="imag2" placeholder="Enter Imaginary Part 2">
+                <button onclick="calculateComplexNumber()">Calculate</button>
+                <div class="result" id="complex-result"></div>
+            </div>
+    
+            <!-- Boolean Algebra Simplifier -->
+            <div class="calculator" id="BA-simplifier">
+                <h2>Boolean Algebra Simplifier</h2>
+                <label for="boolean-expression">Boolean Expression:</label>
+                <input type="text" id="boolean-expression" placeholder="Enter Boolean Expression">
+                <button onclick="simplifyBooleanAlgebra()">Simplify</button>
+                <div class="result" id="boolean-result"></div>
+            </div>
+    
+            <!-- Partial Fraction Decomposer -->
+            <div class="calculator" id="PF-decomposer">
+                <h2>Partial Fraction Decomposer</h2>
+                <label for="rational-function">Rational Function:</label>
+                <input type="text" id="rational-function" placeholder="Enter Rational Function (e.g. 1/x+2)">
+                <button onclick="decomposePartialFractions()">Decompose</button>
+                <div class="result" id="partial-fraction-result"></div>
+            </div>
+    
+            <!-- Inequality Calculator -->
+            <div class="calculator" id="inequality-calculator">
+                <h2>Inequality Calculator</h2>
+                <label for="inequality-expression">Inequality Expression:</label>
+                <input type="text" id="inequality-expression" placeholder="Enter Inequality Expression">
+                <button onclick="calculateInequality()">Solve</button>
+                <div class="result" id="inequality-result"></div>
+            </div>
+    
+            <!-- Flow Rate Calculator -->
+            <div class="calculator" id="FR-calculator">
+                <h2>Flow Rate Calculator</h2>
+                <label for="pipe-diameter">Pipe Diameter (m):</label>
+                <input type="number" id="pipe-diameter" placeholder="Enter Pipe Diameter">
+                <label for="flow-velocity">Flow Velocity (m/s):</label>
+                <input type="number" id="flow-velocity" placeholder="Enter Flow Velocity">
+                <button onclick="calculateFlowRate()">Calculate</button>
+                <div class="result" id="flow-rate-result"></div>
+            </div>
+    
+            <!-- Impulse Calculator -->
+            <div class="calculator" id="impulse-calculator">
+                <h2>Impulse Calculator</h2>
+                <label for="force">Force (N):</label>
+                <input type="number" id="force" placeholder="Enter Force">
+                <label for="time">Time (s):</label>
+                <input type="number" id="time" placeholder="Enter Time">
+                <button onclick="calculateImpulse()">Calculate</button>
+                <div class="result" id="impulse-result"></div>
+            </div>
+    
+            <!-- Factorization Calculator -->
+            <div class="calculator" id="Factorization-calculator">
+                <h2>Factorization Calculator</h2>
+                <label for="integer">Integer:</label>
+                <input type="number" id="integer" placeholder="Enter Integer">
+                <button onclick="calculateFactorization()">Factorize</button>
+                <div class="result" id="factorization-result"></div>
+            </div>
+    
+            <!-- Percentage Calculator -->
+            <div class="calculator" id="percentage-calculator">
+                <h2>Percentage Calculator</h2>
+                <label for="original-value">Original Value:</label>
+                <input type="number" id="original-value" placeholder="Enter Original Value">
+                <label for="percentage">Percentage:</label>
+                <input type="number" id="percentage" placeholder="Enter Percentage">
+                <button onclick="calculatePercentage()">Calculate</button>
+                <div class="result" id="percentage-result"></div>
+            </div>
+    
+            <!-- Exponential Formulas Calculator -->
+            <div class="calculator" id="Ex-calculator">
+                <h2>Exponential Formulas Calculator</h2>
+                <label for="base">Base:</label>
+                <input type="number" id="base" placeholder="Enter Base">
+                <label for="exponent">Exponent:</label>
+                <input type="number" id="exponent" placeholder="Enter Exponent">
+                <button onclick="calculateExponential()">Calculate</button>
+                <div class="result" id="exponential-result"></div>
+            </div>
+    
+            <!-- Cube of a Number Calculator -->
+            <div class="calculator" id="cube-calculator">
+                <h2>Cube of a Number Calculator</h2>
+                <label for="cube-number">Number:</label>
+                <input type="number" id="cube-number" placeholder="Enter Number">
+                <button onclick="calculateCube()">Calculate</button>
+                <div class="result" id="cube-result"></div>
+            </div>
+    
+            <!-- Cube Root Calculator -->
+            <div class="calculator" id="CR-calculator">
+                <h2>Cube Root Calculator</h2>
+                <label for="cube-root-number">Number:</label>
+                <input type="number" id="cube-root-number" placeholder="Enter Number">
+                <button onclick="calculateCubeRoot()">Calculate</button>
+                <div class="result" id="cube-root-result"></div>
+            </div>
+        </div>
+     </main>
+     <!-- end of main section -->
+
+      <!-- Footer section -->
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+         <p>
+             <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+         </p>
+     </footer>
+     <!-- Footer section end -->
+      
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,144 +1,203 @@
-/* General Reset */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
     margin: 0;
     padding: 0;
-    line-height: 1.2;
     box-sizing: border-box;
 }
+body{
+    background-color: #fff;
+    font-family: 'Roboto', Courier, monospace;
+    line-height: 1.2;
 
-ul li {
+}
+
+ul,li{
     list-style-type: none;
 }
-
-body {
-    background-color: rgb(166, 255, 248);
-    font-family: Arial, sans-serif;
+div{
+    display: block;
+    unicode-bidi: isolate;
 }
-
-/* =========================
-   Header and Navigation
-   ========================= */
-
-.main-header {
-    background: linear-gradient(90deg, rgb(41, 147, 155), rgb(87, 58, 180));
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+header{
+    background-color: #004d40;
+    color: white;
+    height: 7rem;
 }
-
-
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.nav-item {
-    margin: 0 1rem;
-    cursor: pointer;
-    color: white;
+.logo{
+    padding: 20px;
+    height: 50%;
+}
+.logo a{
+    text-decoration: none;
+    background-color: transparent;
 }
 
+.logo img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 7.5rem;
+    height: 3.6rem;
+    border-radius: 50%;
+}
 .nav-right {
     display: flex;
     align-items: center;
 }
 
-/* =========================
-   Dropdown Menu
-   ========================= */
-
-.nav-dropdown {
+/* Dropdown menu container */
+.nav-item {
     position: relative;
 }
 
-.nav-dropdown span {
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.nav-item > span {
+    font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #0f3460;
+    color: #ffffff;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.nav-dropdown span:hover {
-    color: rgb(155, 41, 130);
+.nav-item > span:hover {
+    background-color: #16213e;
 }
 
-/* Dropdown Content Styling */
+/* Dropdown content */
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a2e;
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
     border-radius: 8px;
-    z-index: 10;
-    width: 250px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    animation: dropdownAnimation 0.3s ease-in-out;
 }
 
-/* Show Dropdown on Hover */
-.nav-dropdown:hover .dropdown-content {
+.nav-item:hover .dropdown-content {
     display: block;
-    animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Main Category Styling */
+/* Dropdown list */
+.dropdown-list {
+    list-style: none;
+}
+
 .dropdown-category {
-    border-bottom: 1px solid #eee;
-    padding: 0.8rem 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    border-bottom: 1px solid #333;
+    padding: 10px;
 }
 
-.dropdown-category:hover {
-    background: rgb(245, 245, 245);
+.dropdown-category:last-child {
+    border-bottom: none;
 }
 
+/* Category title */
 .category-title {
+    font-size: 16px;
     font-weight: bold;
-    color: #444;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: color 0.3s ease;
-    text-decoration: none;
+    justify-content: space-between;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .category-title:hover {
-    color: rgb(87, 58, 180);
+    background-color: #0f3460;
 }
 
-/* Sub-Category List Styling */
+.category-title i {
+    font-size: 12px;
+}
+
+/* Sub-dropdown list */
 .sub-dropdown-list {
-    display: none;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-    background: #f9f9f9;
-    border-left: 3px solid rgb(87, 58, 180);
-    border-radius: 0 0 8px 8px;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #0f3460;
+    margin-top: 5px;
+    padding: 0 15px;
+    border-radius: 4px;
 }
 
 .dropdown-category.active .sub-dropdown-list {
-    display: block;
+    max-height: 300px;
 }
 
-/* Sub-Category Links */
+/* Sub-dropdown items */
 .sub-dropdown-list li {
-    padding: 0.5rem 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+}
+
+.sub-dropdown-list li:last-child {
+    border-bottom: none;
 }
 
 .sub-dropdown-list a {
-    color: #555;
     text-decoration: none;
+    color: #b8c1ec;
+    font-size: 14px;
+    display: block;
     transition: color 0.3s ease;
 }
 
 .sub-dropdown-list a:hover {
-    color: rgb(155, 41, 130);
+    color: #ffffff;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-item > span {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .category-title {
+        font-size: 14px;
+    }
+
+    .sub-dropdown-list a {
+        font-size: 12px;
+    }
+}
+
+/* Keyframes for animation */
+@keyframes dropdownAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
 /* =========================
    Search Form
@@ -214,73 +273,502 @@ body {
     color: rgb(155, 41, 130);
 }
 
-/* =========================
-   Calculator Categories Section
-   ========================= */
-
-   .calculator-categories {
-    display: flex;              /* Use flexbox to layout the cards in a row */
-    justify-content: space-between; /* Space between the cards */
-    flex-wrap: wrap;            /* Allow wrapping */
-    overflow: hidden;           /* Hide excess cards */
-    padding: 10px;
+/* banner section */
+.category-carousel {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
-.calculator1 {
-    flex: 1 1 30%;              /* Each card takes up 30% of the container */
-    margin: 10px;
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%; 
+    height: 60vh;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    height: 100%;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    height: 100%;
+    margin: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    color: #333;
+    font-size: 2rem;
+}
+
+.highlight-text:hover {
+
+    text-shadow: 0 0 3px #ff0000;
+  }
+
+.slide1{
+    background-image: url('images/scientific.jpg');
+    background-size: 50%;
+    color: rgba(61, 62, 6, 0.608);
+    text-decoration: none;
+}
+.slide2{
+    background-image: url('images/financial.jpg');
+    background-size: 100%;
+    color: rgba(7, 37, 46, 0.732);
+    text-decoration: none;
+}
+.slide3{
+    background-image: url('images/converter.jpg');
+    background-size: 100%;
+    color: rgba(61, 61, 92, 0.797);
+    text-decoration: none;
+}
+.slide4{
+    background-image: url('images/health.jpg');
+    background-size: 100%;
+    color: rgba(101, 162, 88, 0.871);
+    text-decoration: none;
+}
+.slide5{
+    background-image: url('images/algebra.jpg');
+    background-size: 100%;
+    color: rgba(46, 25, 25, 0.932);
+    text-decoration: none;
+}
+.slide6{
+    background-image: url('images/Geometry.png');
+    background-size: 100%;
+    color: darkslategrey;
+    text-decoration: none;
+}
+
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    font-size: 1.5rem; 
+}
+
+.carousel-btn.left {
+    left:20px;
+}
+
+.carousel-btn.right {
+    right: 20px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* About Section */
+.About {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* categories section */
+
+.Categories {
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding: 10px;
+    gap: 0; 
+    scrollbar-width: none; 
+}
+.Calculator {
+    display: inline-block; 
+    margin: 0; 
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    min-width: 250px;           /* Minimum width of each card */
-    max-width: 320px;           /* Optional: Adjust the max-width if needed */
+    min-width: 250px;
 }
 
-.calculator1:hover {
+.Calculator .calculator-thumbnail {
+    width: inherit;
+    height: 12rem;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+
+
+.Calculator:hover {
     transform: scale(1.05);
 }
 
-.calculator-thumbnail img {
-    width: 100%;                /* Adjust width to fill the container */
+.calculator-thumbnail img {                                           
+    width: 200px;
     height: 150px;
     border-radius: 8px;
     object-fit: cover;
 }
 
-/* =========================
-   Responsive Design for smaller screens
-   ========================= */
+/* Review Section */
+.Review {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.review-response {
+    flex: 0 0 100%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review-p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.reviewer {
+    font-size: 1rem;
+    color: #777;
+    font-weight: bold;
+}
+
+/* Navigation Arrows (Invisible) */
+.slider-btn {
+    font-size: 2rem;
+    color: transparent; /* Make the arrow invisible */
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 30px; /* Set the size of the button */
+    height: 30px; /* Set the size of the button */
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider-btn:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+
+
+/* Feature Section */
+.features {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Fixed two columns per row */
+    gap: 20px; /* Spacing between grid items */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.services {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.services:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.services-icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.services-title {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.services-descr {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+
+
+
+  
+  
+  
+
+
+/* Contact Section */
+.contact {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    flex: 1 1 calc(33.333% - 20px);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ci-icon {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.ci-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.ci-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+.ci-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.contact-form {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-group {
+    text-align: right; 
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .calculator-categories {
-        justify-content: center;   /* Center the cards on smaller screens */
-    }
-
-    .calculator1 {
-        flex: 1 1 45%;              /* Allow the cards to take up more space */
-        min-width: 200px;
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .calculator1 {
-        flex: 1 1 100%;             /* Allow cards to stack in one column */
-    }
-}
 
-/* =========================
-   Animations
-   ========================= */
+/* Footer Section */
+ footer {
+            width: 100%;
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        footer a {
+            color: #a8dadc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+                            
+
+

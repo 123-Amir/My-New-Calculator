@@ -8,12 +8,86 @@
 </head>
 <body>
     <header>
-        <h1>Financial Calculators</h1>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="/"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
     </header>
+   
+    <section class="features">
+        <div>
+            <h1 class="section-title">FINANCIAL CALCULATORS</h1>
+        </div>
+    
+        <div class="services-container">
+             <!-- Simple Interest Calculator Feature -->
+            <div class="services" id="simple-interest" data-target="simple-interest-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/SI.png" alt="SI Calculator" /></a>
+                </div>
+                <h3 class="services-title">Simple Interest Calculator</h3>
+            </div>
+    
+            <!-- Compound Interest Calculator Feature -->
+            <div class="services" id="compound-interest" data-target="compound-interest-calculator">
+                <div class="services-icon">
+                    <a href="#"><img src="images/CI.png" alt="CI Calculator" /></a>
+                </div>
+                <h3 class="services-title">Compound Interest Calculator</h3>
+            </div>
+    
+            <!-- Currency Calculator Feature -->
+            <div class="services" id="currency-calculator" data-target="currency-calculator-section">
+                <div class="services-icon">
+                   <a href="#"> <img src="images/Currency.jpeg" alt="Currency Calculator" /></a>
+                </div>
+                <h3 class="services-title">Currency Calculator</h3>
+            </div>
+    
+            <!-- Salary Calculator Feature -->
+            <div class="services" id="salary-calculator" data-target="salary-calculator-section">
+                <div class="services-icon">
+                    <a href="#"><img src="images/Salary.jpeg" alt="Salary Calculator" /></a>
+                </div>
+                <h3 class="services-title">Salary Calculator</h3>
+            </div>
 
-    <main>
+            <!-- Retirement Calculator Feature -->
+            <div class="services" id="retirement" data-target="retirement-calculator-section">
+                <div class="services-icon">
+                    <a href="#"><img src="images/retire.jpeg" alt="Retirement Calculator" /></a>
+                </div>
+                <h3 class="services-title">Retirement Calculator</h3>
+            </div>
+
+            <!-- Sales & Tax  Calculator Feature -->
+            <div class="services" id="sales-tax" data-target="sales-calculator-section">
+                <div class="services-icon">
+                    <a href="#"><img src="images/ST.jpeg" alt="Sales & Tax Calculator" /></a>
+                </div>
+                <h3 class="services-title">Sales & Tax Calculator</h3>
+            </div>
+
+            <!-- Investment Calculator Feature -->
+            <div class="services" id="investment" data-target="investment-calculator-section">
+                <div class="services-icon">
+                    <a href="#"><img src="images/Investment.jpeg" alt="Investment Calculator" /></a>
+                </div>
+                <h3 class="services-title">Investment Calculator</h3>
+            </div>
+            
+        </div>
+    </section>
+
+    <main style="display: none;">
         <!-- Simple Interest Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="simple-interest-calculator">
             <h2>Simple Interest Calculator</h2>
             <form id="simple-interest-form">
                 <input type="number" id="si-principal" placeholder="Principal Amount">
@@ -25,7 +99,7 @@
         </section>
 
         <!-- Compound Interest Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="compound-interest-calculator">
             <h2>Compound Interest Calculator</h2>
             <form id="compound-interest-form">
                 <input type="number" id="ci-principal" placeholder="Principal Amount">
@@ -42,7 +116,7 @@
         </section>
 
         <!-- Currency Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="currency-calculator-section">
             <h2>Currency Calculator</h2>
             <form id="currency-converter-form">
                 <input type="number" id="currency-amount" placeholder="Amount">
@@ -60,7 +134,7 @@
         </section>
 
         <!-- Salary Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="salary-calculator-section">
             <h2>Salary Calculator</h2>
             <form id="salary-calculator-form">
                 <input type="number" id="gross-salary" placeholder="Gross Salary">
@@ -72,7 +146,7 @@
         </section>
 
         <!-- Retirement Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="retirement-calculator-section">
             <h2>Retirement Calculator</h2>
             <form id="retirement-form">
                 <input type="number" id="current-age" placeholder="Current Age">
@@ -85,7 +159,7 @@
         </section>
 
         <!-- Sales and Tax Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="sales-calculator-section">
             <h2>Sales and Tax Calculator</h2>
             <form id="sales-tax-form">
                 <input type="number" id="price" placeholder="Price">
@@ -96,7 +170,7 @@
         </section>
 
         <!-- Investment Calculator -->
-        <section class="financial-calculator">
+        <section class="financial-calculator" id="investment-calculator-section">
             <h2>Investment Calculator</h2>
             <form id="investment-form">
                 <input type="number" id="initial-investment" placeholder="Initial Investment">
@@ -108,6 +182,13 @@
             </form>
         </section>
     </main>
+
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

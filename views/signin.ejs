@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - All-in-One Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.5;
+            background: linear-gradient(to bottom, #a8dadc, #f1faee);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            width: 100%;
+            background-color:  #004d40;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: #a8dadc;
+            font-weight: bold;
+        }
+
+
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header ul li {
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header ul li a:hover {
+            color: #457b9d;
+        }
+
+        .container {
+            background-color: #ffffff;
+            margin-top: 125px;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        form label {
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        form input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #457b9d;
+            outline: none;
+        }
+
+        form button {
+            background: linear-gradient(to right, #457b9d, #1d3557);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: linear-gradient(to right, #1d3557, #457b9d);
+        }
+
+        .google-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .google-btn {
+            background-color: transparent;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .google-btn img {
+            height: 20px;
+        }
+
+        .google-btn:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container a {
+            color: #457b9d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #a8dadc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .or-container {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 16px;
+            color: #666;
+        }
+
+    </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="/"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin">Sign In</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <div>
+            <form action="/signin" method="post">
+                <label for="name">Username</label>
+                <input type="text" id="name" name="username" placeholder="Enter your username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit">Sign In</button>
+    
+                <div>
+                    <a href="forgetpwd">Forgot Password?</a>
+                </div>
+                <div>
+                    <p>Don't have an account? <a href="signup">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="or-container">
+        <span>or</span>
+    </div>
+
+   <!-- Google Sign-In Button -->
+   <div class="google-btn-container">
+        <button class="google-btn" type="button" id="googleSignIn">
+            <img src="images/googlelogo.jpeg" alt="Google Logo">
+            Sign in with Google
+        </button>
+   </div>
+
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </p>
+    </footer>
+
+    <script>
+        // Google Sign-In initialization
+        window.onload = () => {
+            google.accounts.id.initialize({
+                client_id: "YOUR_GOOGLE_CLIENT_ID",
+                callback: handleCredentialResponse
+            });
+
+            document.getElementById("googleSignIn").addEventListener("click", () => {
+                google.accounts.id.prompt();
+            });
+        };
+
+        function handleCredentialResponse(response) {
+            console.log("Google ID Token: ", response.credential);
+            // Process the ID token for your backend authentication
+        }
+    </script>
+</body>
+</html>

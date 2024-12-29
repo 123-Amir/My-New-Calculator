@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALLinONECALCULATOR</title> 
-    <link rel="stylesheet" href="homepage_style.css">
+    <title>Allin1Calculator-Homepage</title>
+     <link rel="icon" href="images/logob.jpg"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"></noscript>
 </head>
@@ -12,90 +14,99 @@
     <header class="main-header">
         <nav class="nav-header">
             <div class="logo">
-                <img src="#" alt="logo">
+                <a href="/" target="_top">
+                <img src="images/logob.jpg" alt="logo"></a>
             </div>
             <div class="nav-item nav-dropdown">
                 <span>Categories <i class="fa-solid fa-chevron-down"></i></span>
                 <div class="dropdown-content">
                     <ul class="dropdown-list">
+                        <!-- Scientific Calculators -->
                         <li class="dropdown-category">
-                            <a href="scientific_calculator" class="category-title">Scientific Calculators</a>
+                            <button class="category-title">Scientific Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="scientific_calculator">Basic Scientific Calculator</a></li>
-                                <li><a href="scientific_calculator">Advanced Scientific Calculator</a></li>
+                                <li><a href="scientific">Basic Scientific Calculator</a></li>
+                                <li><a href="scientific">Advanced Scientific Calculator</a></li>
                             </ul>
                         </li>
+                        <!-- Financial Calculators -->
                         <li class="dropdown-category">
-                            <a href="financial_calculators" class="category-title">Financial Calculators</a>
+                            <button class="category-title">Financial Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="financial_calculators">Simple Interest Calculator</a></li>
-                                <li><a href="financial_calculators">Compound Interest Calculator</a></li>
-                                <li><a href="financial_calculators">Currency Calculator</a></li>
-                                <li><a href="financial_calculators">Salary Calculator</a></li>
-                                <li><a href="financial_calculators">Retirement Calculator</a></li>
-                                <li><a href="financial_calculators">Sales and Tax Calculator</a></li>
-                                <li><a href="financial_calculators">Investment Calculator</a></li>
+                                <li><a href="financial">Simple Interest Calculator</a></li>
+                                <li><a href="financial">Compound Interest Calculator</a></li>
+                                <li><a href="financial">Currency Calculator</a></li>
+                                <li><a href="financial">Salary Calculator</a></li>
+                                <li><a href="financial">Retirement Calculator</a></li>
+                                <li><a href="financial">Sales and Tax Calculator</a></li>
+                                <li><a href="financial">Investment Calculator</a></li>
                             </ul>
                         </li>
+                        <!-- Conversion Calculators -->
                         <li class="dropdown-category">
-                            <a href="conversion_calculator" class="category-title">Conversion Calculators</a>
+                            <button class="category-title">Conversion Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="conversion_calculator">Length Calculator</a></li>
-                                <li><a href="conversion_calculator">Age Calculator</a></li>
-                                <li><a href="conversion_calculator">Hour to Minute & Seconds Calculator</a></li>
-                                <li><a href="conversion_calculator">Date Calculator</a></li>
-                                <li><a href="conversion_calculator">GPA Calculator</a></li>
-                                <li><a href="conversion_calculator">Height Calculator</a></li>
-                                <li><a href="conversion_calculator">Password Generator</a></li>
-                                <li><a href="conversion_calculator">Bill and Tip Calculator</a></li>
+                                <li><a href="conversion">Length Calculator</a></li>
+                                <li><a href="conversion">Age Calculator</a></li>
+                                <li><a href="conversion">Hour to Minute & Seconds Calculator</a></li>
+                                <li><a href="conversion">Date Calculator</a></li>
+                                <li><a href="conversion">GPA Calculator</a></li>
+                                <li><a href="conversion">Height Calculator</a></li>
+                                <li><a href="conversion">Password Generator</a></li>
+                                <li><a href="conversion">Bill and Tip Calculator</a></li>
                             </ul>
                         </li>
+                        <!-- Health and Fitness Calculators -->
                         <li class="dropdown-category">
-                            <a href="health&fitness_calculator" class="category-title">Health and Fitness Calculators</a>
+                            <button class="category-title">Health and Fitness Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="health&fitness_calculator">BMI Calculator</a></li>
-                                <li><a href="health&fitness_calculator">BMR Calculator</a></li>
-                                <li><a href="health&fitness_calculator">Calorie Calculator</a></li>
-                                <li><a href="health&fitness_calculator">Body Fat Calculator</a></li>
-                                <li><a href="health&fitness_calculator">Ideal Weight Calculator</a></li>
+                                <li><a href="health&fitness">BMI Calculator</a></li>
+                                <li><a href="health&fitness">BMR Calculator</a></li>
+                                <li><a href="health&fitness">Calorie Calculator</a></li>
+                                <li><a href="health&fitness">Body Fat Calculator</a></li>
+                                <li><a href="health&fitness">Ideal Weight Calculator</a></li>
                             </ul>
                         </li>
+                        <!-- Math and Algebra Calculators -->
                         <li class="dropdown-category">
-                            <a href="maths&algebra_calculator" class="category-title">Math and Algebra Calculators</a>
+                            <button class="category-title">Math and Algebra Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="maths&algebra_calculator">Complex Number Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Boolean Algebra Simplifier</a></li>
-                                <li><a href="maths&algebra_calculator">Partial Fraction Decomposer</a></li>
-                                <li><a href="maths&algebra_calculator">Inequality Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Flow Rate Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Impulse Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Factorization Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Percentage Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Exponential Formulas Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Cube of a Number Calculator</a></li>
-                                <li><a href="maths&algebra_calculator">Cube Root Calculator</a></li>
+                                <li><a href="math&algebra">Complex Number Calculator</a></li>
+                                <li><a href="math&algebra">Boolean Algebra Simplifier</a></li>
+                                <li><a href="math&algebra">Partial Fraction Decomposer</a></li>
+                                <li><a href="math&algebra">Inequality Calculator</a></li>
+                                <li><a href="math&algebra">Flow Rate Calculator</a></li>
+                                <li><a href="math&algebra">Impulse Calculator</a></li>
+                                <li><a href="math&algebra">Factorization Calculator</a></li>
+                                <li><a href="math&algebra">Percentage Calculator</a></li>
+                                <li><a href="math&algebra">Exponential Formulas Calculator</a></li>
+                                <li><a href="math&algebra">Cube of a Number Calculator</a></li>
+                                <li><a href="math&algebra">Cube Root Calculator</a></li>
                             </ul>
                         </li>
+                        <!-- Geometry and Trigonometry Calculators -->
                         <li class="dropdown-category">
-                            <a href="geometry_calculator" class="category-title">Geometry and Trigonometry Calculators</a>
+                            <button class="category-title">Geometry and Trigonometry Calculators</button>
                             <ul class="sub-dropdown-list">
-                                <li><a href="geometry_calculator">2D Distance Calculator</a></li>
-                                <li><a href="geometry_calculator">3D Distance Calculator</a></li>
-                                <li><a href="geometry_calculator">Equilateral Triangle Calculator</a></li>
-                                <li><a href="geometry_calculator">Isosceles Triangle Calculator</a></li>
-                                <li><a href="geometry_calculator">Right-Angled Triangle Calculator</a></li>
-                                <li><a href="geometry_calculator">Cube Calculator</a></li>
-                                <li><a href="geometry_calculator">Cone Calculator</a></li>
-                                <li><a href="geometry_calculator">Circle Calculator</a></li>
-                                <li><a href="geometry_calculator">Cylindrical Calculator</a></li>
-                                <li><a href="geometry_calculator">Square Calculator</a></li>
-                                <li><a href="geometry_calculator">Sphere Calculator</a></li>
+                                <li><a href="geometry">2D Distance Calculator</a></li>
+                                <li><a href="geometry">3D Distance Calculator</a></li>
+                                <li><a href="geometry">Equilateral Triangle Calculator</a></li>
+                                <li><a href="geometry">Isosceles Triangle Calculator</a></li>
+                                <li><a href="geometry">Right-Angled Triangle Calculator</a></li>
+                                <li><a href="geometry">Cube Calculator</a></li>
+                                <li><a href="geometry">Cone Calculator</a></li>
+                                <li><a href="geometry">Circle Calculator</a></li>
+                                <li><a href="geometry">Cylindrical Calculator</a></li>
+                                <li><a href="geometry">Square Calculator</a></li>
+                                <li><a href="geometry">Sphere Calculator</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+          
+                  
+        
             <div class="nav-item search-form-container">
                 <form action="#">
                     <input type="text" placeholder="Search for Categories">
@@ -103,68 +114,220 @@
                 </form>
             </div>
             <ul class="nav-right">
-                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="login" class="btn">Login</a></li>
-                <li class="nav-item"><a href="signup" class="btn btn-highlight">Sign Up</a></li>
+                <li class="nav-item"><a href="signin" class="btn btn-highlight">Sign In</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-globe"></i>ENGLISH</a></li>
             </ul>
         </nav>
-    </header>
-    <section class="calculator-categories">
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="1">
-                <a href="scientific_calculator" style="text-decoration: none; color: inherit;">
-                    <p>Scientific Calculator</p>
-                    <img src="img/scientific.avif" alt="Scientific Calculator">
-                </a>
+    </header> <!-- header-section end! -->
+     <section class="category-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <a href="scientific" class="carousel-item slide1 highlight-text">Scientific Calculators</a>
+                <a href="financial" class="carousel-item slide2 highlight-text">Financial Calculators</a>
+                <a  href="conversion" class="carousel-item slide3 highlight-text">Conversion Calculators</a>
+                <a  href="health&fitness" class="carousel-item slide4 highlight-text">Health and Fitness Calculators</a>
+                <a  href="maths&algebra" class="carousel-item slide5 highlight-text">Math and Algebra Calculators</a>
+                <a href="geometry" class="carousel-item slide6 highlight-text">Geometry and Trigonometry Calculators</a>
+            </div>
+            <button class="carousel-btn left">&lt;</button>
+            <button class="carousel-btn right">&gt;</button>
+        </div>
+    </section> <!--banner-section end!-->
+
+    <!-- about section start -->
+    <section class="About">
+        <div class="about">
+            <h1 class="section-title">About</h1>
+            <p>
+                All-In-One Calculator is a simple, clean and easy to use calculator with a complete set of tools for day to day life, such as a unit converter,
+                currency converter, percentage calculator and more.
+            </p>
+            <p>
+                From simple or complex calculations, to unit and currency conversions, percentages, proportions, areas, volumes, etc... it does it all. And it does it good!
+            </p>
+
+        </div>
+
+    </section>
+    <!-- About section end! -->
+
+    <!-- feature section start -->
+    <section class="features">
+        <div>
+            <h2 class="section-title">Features</h2>
+        </div>
+    
+        <div class="services-container">
+            <!-- Scientific Calculator Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                    <a href="scientific"><img src="images/scientific.jpg" alt="Algebra" /></a>
+                </div>
+                <h3 class="services-title">Scientific Calculators</h3>
+                <div class="services-descr">
+                    Performs complex mathematical calculations, scientific functions, and statistical operations.
+                </div>
+            </div>
+    
+            <!-- Geometry Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                    <a href="geometry"><img src="images/Geometry.png" alt="Geometry" /></a>
+                </div>
+                <h3 class="services-title">Geometry Calculators</h3>
+                <div class="services-descr">
+                    Calculate dimensions for common 2D shapes and 3D bodies using known variables. Solve right triangles with step-by-step solutions.
+                </div>
+            </div>
+    
+            <!-- Conversion Calculators Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                   <a href="conversion"> <img src="images/converter.jpg" alt="Conversion Calculators" /></a>
+                </div>
+                <h3 class="services-title">Conversion Calculators</h3>
+                <div class="services-descr">
+                    Easily convert between common units on the same screen. Convert shoe and ring sizes, Roman numerals, or numeric bases.
+                </div>
+            </div>
+    
+            <!-- Health & Fitness Calculator Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                    <a href="health&fitness"><img src="images/health.jpg" alt="Health & Fitness Calculator" /></a>
+                </div>
+                <h3 class="services-title">Health & Fitness Calculators</h3>
+                <div class="services-descr">
+                    Perform various calculations to provide users with personalized estimates, measurements, and recommendations.
+                </div>
+            </div>
+
+            <!-- Financial Calculator Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                    <a href="financial"><img src="images/financial.jpg" alt="Financial Calculator" /></a>
+                </div>
+                <h3 class="services-title">Financial Calculators</h3>
+                <div class="services-descr">
+                    It can help you make decisions about your money by analyzing financial data and providing results.
+                </div>
+            </div>
+
+            <!-- Math & Algebra Calculator Feature -->
+            <div class="services" data-wow-delay="0" data-wow-duration="1.5s">
+                <div class="services-icon">
+                    <a href="math&algebra"><img src="images/algebra.jpg" alt="Math & Algebra Calculator " /></a>
+                </div>
+                <h3 class="services-title">Math & Algebra Calculators</h3>
+                <div class="services-descr">
+                    Solve linear, quadratic, or equation systems. Calculate percentages, proportions, and ratios. Find out means. Convert decimals to fractions. Check prime numbers.
+                </div>
             </div>
         </div>
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="2">
-                <a href="financial_calculators" style="text-decoration: none; color: inherit;">
-                    <p>Financial Calculator</p>
-                    <img src="img/scientific.avif" alt="Financial Calculator">
-                </a>
+    </section>
+    <!-- feature section end -->
+
+    <!--review section start  -->
+   <section class="Review">
+    <div>
+        <h2 class="section-title">What People Say?</h2>
+    </div>
+    <div class="slider">
+        <div class="slider-content">
+            <!-- Review 1 -->
+            <div class="review-response">
+                <p class="review-p">Love this app! It deserves to be at the top of the search. 👏 🎉</p>
+                <footer class="reviewer">★★★★★ — Rahul</footer>
             </div>
-            
-        </div>
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="3">
-                <a href="conversion_calculator" style="text-decoration: none; color: inherit;">
-                    <p>Conversion Calculator</p>
-                    <img src="img/scientific.avif" alt="Conversion Calculator">
-                </a>
+            <!-- Review 2 -->
+            <div class="review-response">
+                <p class="review-p">Amazing tool for all my calculation needs! 👏</p>
+                <footer class="reviewer">★★★★★ — Rani</footer>
             </div>
-        </div>
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="4">
-                <a href="health&fitness_calculator" style="text-decoration: none; color: inherit;">
-                    <p>Financial Calculator</p>
-                    <img src="img/scientific.avif" alt="Health and Fitness Calculator">
-                </a>
-            </div>
-        </div>
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="5">
-                <a href="health&fitness_calculator" style="text-decoration: none; color: inherit;">
-                    <p>Health and Fitness Calculator</p>
-                    <img src="img/scientific.avif" alt="Health and Fitness Calculator">
-                </a>
+            <!-- Review 3 -->
+            <div class="review-response">
+                <p class="review-p">A must-have app! Very useful and intuitive. 🎉</p>
+                <footer class="reviewer">★★★★★ — Raj</footer>
             </div>
         </div>
-        
-        <div class="calculator1">
-            <div class="calculator-thumbnail" id="6">
-                <a href="geometry_calculator" style="text-decoration: none; color: inherit;">
-                    <p>Geometry and Trigonometry Calculator</p>
-                    <img src="img/scientific.avif" alt="Geometry and Trigonometry Calculator">
-                </a>
+
+        <!-- Left and Right Arrows for Navigation -->
+        <span class="slider-btn left" onclick="moveSlide(-1)"></span>
+        <span class="slider-btn right" onclick="moveSlide(1)"></span>
+    </div>
+
+   </section>
+   <!-- review section end -->
+    
+    <!-- contact section start -->
+    <section class="contact">
+        <div class="container">
+            <!-- Section Title -->
+            <div>
+                <h2 class="section-title">Contact</h2>
+            </div>
+    
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <!-- Phone -->
+                <div class="contact-item wow fadeScaleIn" data-wow-delay="0" data-wow-duration="1s">
+                    <div class="ci-icon">
+                        <i class="fa fa-phone-alt"></i>
+                    </div>
+                    <div class="ci-title">Call Us:</div>
+                    <div class="ci-text">+91 9999 XXXXX</div>
+                </div>
+    
+                <!-- Address -->
+                <div class="contact-item wow fadeScaleIn" data-wow-delay=".1s" data-wow-duration="1s">
+                    <div class="ci-icon">
+                        <i class="fa fa-map-marker-alt"></i>
+                    </div>
+                    <div class="ci-title">Address:</div>
+                    <div class="ci-text">DELHI, NEW DELHI</div>
+                </div>
+    
+                <!-- Email -->
+                <div class="contact-item wow fadeScaleIn" data-wow-delay=".2s" data-wow-duration="1s">
+                    <div class="ci-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="ci-title">Email:</div>
+                    <div class="ci-text">contact@allinonecalculator.com</div>
+                    <div class="ci-link">
+                        <a href="mailto:contact@allinonecalculator.com">Say Hello</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form class="form" data-wow-delay=".5s" id="contact_form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group submit-group">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
             </div>
         </div>
-       
-        </section>
-        
-   <script src="script.js"></script>
+    </section>
+    <!-- contact section end -->
+    <!-- footer section start -->
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </p>
+    </footer> 
+    <!-- End Footer -->
+
+    <script src="script.js"></script>
 </body>
 </html>

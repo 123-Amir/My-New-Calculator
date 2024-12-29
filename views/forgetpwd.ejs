@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - All-in-One Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #e3f2fd);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            width: 100%;
+            background-color: #004d40;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+            font-size: 1.2rem;
+            color: #a8dadc;
+            font-weight: bold;
+        }
+
+        
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        header ul li {
+            margin-left: 20px;
+        }
+        
+        header ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        header ul li a:hover {
+            color: #aed581;
+        }
+        
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            color: #004d40;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            margin: 0 auto;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        form label {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            color: #004d40;
+        }
+        
+        form input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        form input:focus {
+            border-color: #004d40;
+            box-shadow: 0 0 5px rgba(0, 77, 64, 0.5);
+            outline: none;
+        }
+        
+        form button {
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(to right, #004d40, #388e3c);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        form button:hover {
+            background: linear-gradient(to right, #388e3c, #004d40);
+        }
+        
+        footer {
+            width: 100%;
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #a8dadc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logob.jpg" alt="Logo"></a>
+            </div>
+            <div class="logo-text">@ALLINONECALCULATOR</div>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="signin">Sign In</a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Forgot Your Password?</h1>
+        <div class="container">
+            <form action="#">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="confirmation-code">Confirmation Code</label>
+                <input type="text" id="confirmation-code" name="confirmation-code" placeholder="Enter confirmation code" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p><a href="/">© All-In-One Calculator</a></p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    </footer>
+</body>
+</html>

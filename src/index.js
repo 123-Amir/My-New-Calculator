@@ -19,29 +19,32 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     res.render("index");
 });
-app.get("/login", (req, res) => {
-    res.render("login");
+app.get("/signin", (req, res) => {
+    res.render("signin");
 });
 app.get("/signup", (req, res) => {
     res.render("signup");
 });
-app.get("/financial_calculators", (req, res) => {
-    res.render("financial_calculators");
+app.get("/forgetpwd", (req, res) => {
+    res.render("forgetpwd");
 });
-app.get("/conversion_calculator", (req, res) => {
-    res.render("conversion_calculator");
+app.get("/financial", (req, res) => {
+    res.render("financial");
 });
-app.get("/scientific_calculator", (req, res) => {
-    res.render("scientific_calculator");
+app.get("/conversion", (req, res) => {
+    res.render("conversion");
 });
-app.get("/health&fitness_calculator", (req, res) => {
-    res.render("health&fitness_calculator");
+app.get("/scientific", (req, res) => {
+    res.render("scientific");
 });
-app.get("/maths&algebra_calculator", (req, res) => {
-    res.render("maths&algebra_calculator");
+app.get("/health&fitness", (req, res) => {
+    res.render("health&fitness");
 });
-app.get("/geometry_calculator", (req, res) => {
-    res.render("geometry_calculator");
+app.get("/math&algebra", (req, res) => {
+    res.render("math&algebra");
+});
+app.get("/geometry", (req, res) => {
+    res.render("geometry");
 });
 
 
@@ -52,7 +55,7 @@ app.get("/geometry_calculator", (req, res) => {
 app.post("/signup",async (req, res) => {
 
     const data = {
-        name: req.body.username,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password
     }
@@ -75,7 +78,7 @@ app.post("/signup",async (req, res) => {
 });
 
 // Login user 
-app.post("/login", async (req, res) => {
+app.post("/signin", async (req, res) => {
     try{
         const check = await collection.findOne({name: req.body.username});
         if(!check) {
@@ -85,7 +88,7 @@ app.post("/login", async (req, res) => {
         // compare the hash password from the database with the plain text
         const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
         if(isPasswordMatch){
-            res.render("/");
+            res.render("index");
         }else{
             req.send("Wrong Password");
         }

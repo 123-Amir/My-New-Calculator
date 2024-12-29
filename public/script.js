@@ -1,33 +1,121 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const categories = document.querySelectorAll('.category-title');
+//// *MAIN PAGE *////
 
-    categories.forEach(category => {
-        category.addEventListener('click', (e) => {
-            e.preventDefault();
-            const parent = category.parentElement;
+//Category section
+document.querySelectorAll('.category-title').forEach((button) => {
+    button.addEventListener('click', () => {
+        const parentCategory = button.parentElement;
+        const subList = parentCategory.querySelector('.sub-dropdown-list');
 
-            // Toggle active class to show/hide the sub-dropdown
-            parent.classList.toggle('active');
-        });
+        // Toggle active state
+        if (parentCategory.classList.contains('active')) {
+            parentCategory.classList.remove('active');
+            subList.style.maxHeight = null; // Collapse
+        } else {
+            // Collapse other open categories
+            document.querySelectorAll('.dropdown-category').forEach((category) => {
+                category.classList.remove('active');
+                category.querySelector('.sub-dropdown-list').style.maxHeight = null;
+            });
+
+            // Expand current category
+            parentCategory.classList.add('active');
+            subList.style.maxHeight = subList.scrollHeight + 'px'; // Expand
+        }
     });
+});
+//carousel
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const btnLeft = document.querySelector('.carousel-btn.left');
+    const btnRight = document.querySelector('.carousel-btn.right');
+
+    let currentIndex = 0;
+
+    function updateCarouselPosition() {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * (itemWidth + 20)}px)`;
+    }
+
+    btnLeft.addEventListener('click', () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        updateCarouselPosition();
+    });
+
+    btnRight.addEventListener('click', () => {
+        currentIndex = Math.min(currentIndex + 1, items.length - 1);
+        updateCarouselPosition();
+    });
+    window.addEventListener('resize', updateCarouselPosition);
 });
 
 
+//review section
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.review-response');
+    const totalSlides = slides.length;
+
+    // Update the position of the slider
+    function updateSliderPosition() {
+        const sliderContent = document.querySelector('.slider-content');
+        sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Move the slide based on the direction (1 for next, -1 for previous)
+    function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateSliderPosition();
+    }
 
 
 
 
 
+/// *Financial calculator *///
 
-/// Financial calculator 
+// main section //
+document.addEventListener('DOMContentLoaded', () => {
+    // All service sections
+    const services = document.querySelectorAll('.services');
+    const mainSection = document.querySelector('main');
+    const calculators = document.querySelectorAll('.financial-calculator');
 
+    // Add click event listener to each service
+    services.forEach((service) => {
+        service.addEventListener('click', () => {
+            const targetId = service.id + '-calculator'; // ID of the main section to show
+            const targetCalculator = document.getElementById(targetId);
 
+            if (targetCalculator) {
+                // Hide services container
+                document.querySelector('.services-container').style.display = 'none';
 
+                // Show the main section and the specific calculator
+                mainSection.style.display = 'block';
+                calculators.forEach((calc) => {
+                    calc.style.display = 'none';
+                });
+                targetCalculator.style.display = 'block';
+            }
+        });
+    });
 
+    // Optional: Add a "Back" button to return to the services-container
+    calculators.forEach((calc) => {
+        const backButton = document.createElement('button');
+        backButton.textContent = 'Back to Services';
+        backButton.style.marginTop = '20px';
+        backButton.addEventListener('click', () => {
+            // Show services container
+            document.querySelector('.services-container').style.display = 'grid';
 
-
-
-
+            // Hide the main section
+            mainSection.style.display = 'none';
+        });
+        calc.appendChild(backButton);
+    });
+});
 
 // Simple Interest Calculator
 function calculateSimpleInterest() {
@@ -105,15 +193,7 @@ function calculateInvestmentReturns() {
 
 
 
-
-
 /// Scientific Calculator
-
-
-
-
-
-
 
 let currentInput = "";
 let memory = 0;
@@ -205,10 +285,32 @@ function memoryClear() {
 
 /// Conversion Calculators
 
+document.addEventListener('DOMContentLoaded', () => {
+    const services = document.querySelectorAll('.services');
+    const calculators = document.querySelectorAll('.calculator');
+    const mainSection = document.querySelector('main');
 
+    // Hide the main section initially
+    mainSection.style.display = 'none';
 
+    services.forEach(service => {
+        service.addEventListener('click', () => {
+            const target = service.getAttribute('data-target');
 
+            // Hide all calculators
+            calculators.forEach(calculator => {
+                calculator.style.display = 'none';
+            });
 
+            // Show the main section and the target calculator
+            mainSection.style.display = 'block';
+            const targetCalculator = document.getElementById(target);
+            if (targetCalculator) {
+                targetCalculator.style.display = 'block';
+            }
+        });
+    });
+});
 
 
 
@@ -341,14 +443,40 @@ function calculateTotalBill() {
 
 
 
-// geometry_calculator
 
 
+////geometry_calculator
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all service elements, main section, calculators, and services container
+    const services = document.querySelectorAll('.services');
+    const mainSection = document.querySelector('main');
+    const calculators = document.querySelectorAll('.calculator');
+    const servicesContainer = document.querySelector('.services-container');
+
+    // Add click event listener to each service
+    services.forEach((service) => {
+        service.addEventListener('click', () => {
+            const targetId = service.dataset.target; // Get the target calculator ID
+            const targetCalculator = document.getElementById(targetId);
+
+            if (targetCalculator) {
+                // Hide the services container
+                servicesContainer.style.display = 'none';
+
+                // Show the main section and the specific calculator
+                mainSection.style.display = 'block';
+                calculators.forEach((calc) => {
+                    calc.style.display = 'none'; // Hide all calculators
+                });
+                targetCalculator.style.display = 'block'; // Show the selected calculator
+            }
+        });
+    });
 
 
-
-
-
+        }
+    );
 
 
 // 2D Distance Calculator
@@ -440,12 +568,54 @@ function calculateSphere() {
 
 
 // Maths&Algebra Calculator
+document.addEventListener('DOMContentLoaded', () => {
+    const services = document.querySelectorAll('.services');
+    const mainSection = document.querySelector('main');
+    const calculators = document.querySelectorAll('.calculator');
+    const servicesContainer = document.querySelector('.services-container');
 
+    // Initially hide the main section and all calculators
+    mainSection.style.display = 'none';
+    calculators.forEach(calc => calc.style.display = 'none');
 
+    // Add click event listeners to services
+    services.forEach(service => {
+        service.addEventListener('click', () => {
+            const targetId = service.dataset.target;
+            const targetCalculator = document.getElementById(targetId);
 
+            if (targetCalculator) {
+                // Hide services container and show main section
+                servicesContainer.style.display = 'none';
+                mainSection.style.display = 'block';
 
+                // Hide all calculators, then show the target calculator
+                calculators.forEach(calc => calc.style.display = 'none');
+                targetCalculator.style.display = 'block';
 
+                // Add Back button if it doesn't exist
+                if (!targetCalculator.querySelector('.back-button')) {
+                    const backButton = document.createElement('button');
+                    backButton.textContent = 'Back to Services';
+                    backButton.className = 'back-button';
+                    backButton.style.marginTop = '20px';
 
+                    // Add click event listener to Back button
+                    backButton.addEventListener('click', () => {
+                        // Show services container and hide main section
+                        servicesContainer.style.display = 'grid';
+                        mainSection.style.display = 'none';
+
+                        // Hide all calculators
+                        calculators.forEach(calc => calc.style.display = 'none');
+                    });
+
+                    targetCalculator.appendChild(backButton);
+                }
+            }
+        });
+    });
+});
 
 // Complex Number Calculator
 function calculateComplexNumber() {
@@ -550,13 +720,55 @@ function calculateCubeRoot() {
 
 
 
+
+
 // Health & Fitness Calculator
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all service sections, main section, and calculators
+    const services = document.querySelectorAll('.services');
+    const mainSection = document.querySelector('main');
+    const calculators = document.querySelectorAll('.calculator'); // Updated selector for consistency
+    const servicesContainer = document.querySelector('.services-container');
 
+    // Add click event listener to each service
+    services.forEach((service) => {
+        service.addEventListener('click', () => {
+            const targetId = service.dataset.target; // Use the data-target attribute
+            const targetCalculator = document.getElementById(targetId);
 
+            if (targetCalculator) {
+                // Hide services container
+                servicesContainer.style.display = 'none';
 
+                // Show the main section and the specific calculator
+                mainSection.style.display = 'block';
+                calculators.forEach((calc) => {
+                    calc.style.display = 'none';
+                });
+                targetCalculator.style.display = 'block';
+            }
+        });
+    });
 
+    // Add a "Back" button to return to the services-container
+    calculators.forEach((calc) => {
+        const backButton = document.createElement('button');
+        backButton.textContent = 'Back to Services';
+        backButton.className = 'back-button'; // Optional: add a class for styling
+        backButton.style.marginTop = '20px';
 
+        // Add click event for the Back button
+        backButton.addEventListener('click', () => {
+            // Show services container
+            servicesContainer.style.display = 'grid';
 
+            // Hide the main section
+            mainSection.style.display = 'none';
+        });
+
+        calc.appendChild(backButton);
+    });
+});
 
 // BMI Calculator
 function calculateBMI() {
