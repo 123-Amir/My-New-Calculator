@@ -12,8 +12,9 @@ app.use(express.urlencoded({extended: false}));
 
 // use EJS as the view engine
 app.set('view engine', 'ejs');
+app.set('views', '../views');
 //static file
-app.use(express.static("public"));
+app.use(express.static('../public'));
 
 
 app.get("/", (req, res) => {
@@ -97,13 +98,8 @@ app.post("/signin", async (req, res) => {
     }
 });
 
-
-
-
-
-
 //Start server
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log('Server running on Port: ${port}');
+    console.log(`Server running on Port: ${port}`);
 });
