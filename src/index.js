@@ -3,103 +3,76 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const collection = require("./config");
 
-
 const app = express();
-//convert data into json format
+// Convert data into JSON format
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use(express.urlencoded({extended: false}));
-
-// use EJS as the view engine
+// Use EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', '../views');
-//static file
-app.use(express.static('../public'));
+app.set('views', path.join(__dirname, '../views'));
 
+// Static files
+app.use(express.static(path.join(__dirname, '../public')));
 
-app.get("/", (req, res) => {
-    res.render("index");
-});
-app.get("/signin", (req, res) => {
-    res.render("signin");
-});
-app.get("/signup", (req, res) => {
-    res.render("signup");
-});
-app.get("/forgetpwd", (req, res) => {
-    res.render("forgetpwd");
-});
-app.get("/financial", (req, res) => {
-    res.render("financial");
-});
-app.get("/conversion", (req, res) => {
-    res.render("conversion");
-});
-app.get("/scientific", (req, res) => {
-    res.render("scientific");
-});
-app.get("/health&fitness", (req, res) => {
-    res.render("health&fitness");
-});
-app.get("/math&algebra", (req, res) => {
-    res.render("math&algebra");
-});
-app.get("/geometry", (req, res) => {
-    res.render("geometry");
-});
-
-
-
-
+// Routes
+app.get("/", (req, res) => res.render("index"));
+app.get("/signin", (req, res) => res.render("signin"));
+app.get("/signup", (req, res) => res.render("signup"));
+app.get("/forgetpwd", (req, res) => res.render("forgetpwd"));
+app.get("/financial", (req, res) => res.render("financial"));
+app.get("/conversion", (req, res) => res.render("conversion"));
+app.get("/scientific", (req, res) => res.render("scientific"));
+app.get("/health&fitness", (req, res) => res.render("health&fitness"));
+app.get("/math&algebra", (req, res) => res.render("math&algebra"));
+app.get("/geometry", (req, res) => res.render("geometry"));
 
 // Register User
-app.post("/signup",async (req, res) => {
-
+app.post("/signup", async (req, res) => {
     const data = {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
-    }
-    
-    // checks if the user already exists in the database
-    const existingUser = await collection.findOne({name: data.name});
-    if(existingUser) {
+        password: req.body.password,
+    };
+
+    // Check if user already exists
+    const existingUser = await collection.findOne({ name: data.name });
+    if (existingUser) {
         res.send("User already exists.");
-    }else {
-        // hash the password using bcrypt
-        const saltRounds = 10 // Number of salt round for bcrypt
+    } else {
+        // Hash the password
+        const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(data.password, saltRounds);
 
-        data.password = hashedPassword; //Replace the hash password with original
+        data.password = hashedPassword; // Replace the password with the hashed one
         const userdata = await collection.insertMany(data);
         console.log(userdata);
+        res.send("User registered successfully.");
     }
-
-
 });
 
-// Login user 
+// Login user
 app.post("/signin", async (req, res) => {
-    try{
-        const check = await collection.findOne({name: req.body.username});
-        if(!check) {
-            res.send("username cannot found");
+    try {
+        const check = await collection.findOne({ name: req.body.username });
+        if (!check) {
+            res.send("Username not found");
         }
 
-        // compare the hash password from the database with the plain text
+        // Compare the hashed password with the plain text
         const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
-        if(isPasswordMatch){
+        if (isPasswordMatch) {
             res.render("index");
-        }else{
-            req.send("Wrong Password");
+        } else {
+            res.send("Wrong Password");
         }
-    }catch{
+    } catch {
         res.send("Wrong Details");
     }
 });
 
-//Start server
-const port = process.env.PORT || 3000;
+// Start server
+const port = 3000;
 app.listen(port, () => {
     console.log(`Server running on Port: ${port}`);
 });
