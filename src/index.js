@@ -4,18 +4,18 @@ const bcrypt = require('bcryptjs');
 const collection = require("./config");
 require('dotenv').config();
 
-
 const app = express();
+
 // Convert data into JSON format
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Use EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, 'views')); // ✅ Corrected path
 
 // Static files
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get("/", (req, res) => res.render("index"));
@@ -73,8 +73,8 @@ app.post("/signin", async (req, res) => {
     }
 });
 
-// Start server
-const port = 3000;
+// Start server with dynamic port
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on Port: ${port}`);
 });
