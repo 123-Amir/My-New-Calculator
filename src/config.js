@@ -1,15 +1,21 @@
 const mongoose = require("mongoose");
-const connect = mongoose.connect("mongodb://0.0.0.0:27017/users");
+require("dotenv").config();  // ✅ dotenv se environment variables load karna
 
-//check database connected or not
-connect.then(() => {
+// MongoDB URI environment variable se lena
+const mongoURI = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/users";
+
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => {
     console.log("Database connected Successfully");
 })
 .catch((error) => {
-    console.log("Database not connected");   
+    console.log("Database not connected:", error);
 });
 
-//Create a schema
+// Schema
 const LoginSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -25,8 +31,8 @@ const LoginSchema = new mongoose.Schema({
     }
 });
 
-//collection Part
+// Collection
 const collection = new mongoose.model("Collection1", LoginSchema);
 
-//export module
+// Export
 module.exports = collection;
