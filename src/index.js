@@ -12,10 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Use EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // ✅ Corrected path
+app.set('views', path.join(__dirname, '../views')); // ✅ Render ke liye sahi path
 
 // Static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public'))); // ✅ Public folder ka bhi sahi path
 
 // Routes
 app.get("/", (req, res) => res.render("index"));
@@ -31,45 +31,48 @@ app.get("/geometry", (req, res) => res.render("geometry"));
 
 // Register User
 app.post("/signup", async (req, res) => {
-    const data = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-    };
+    try {
+        const { name, email, password } = req.body;
 
-    // Check if user already exists
-    const existingUser = await collection.findOne({ name: data.name });
-    if (existingUser) {
-        res.send("User already exists.");
-    } else {
+        // Check if user already exists
+        const existingUser = await collection.findOne({ name });
+        if (existingUser) {
+            return res.send("User already exists.");
+        }
+
         // Hash the password
-        const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(data.password, saltRounds);
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-        data.password = hashedPassword; // Replace the password with the hashed one
-        const userdata = await collection.insertMany(data);
+        // Save user
+        const userdata = await collection.create({ name, email, password: hashedPassword });
         console.log(userdata);
         res.send("User registered successfully.");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
     }
 });
 
 // Login user
 app.post("/signin", async (req, res) => {
     try {
-        const check = await collection.findOne({ name: req.body.username });
-        if (!check) {
-            res.send("Username not found");
+        const { username, password } = req.body;
+        const user = await collection.findOne({ name: username });
+
+        if (!user) {
+            return res.send("Username not found");
         }
 
-        // Compare the hashed password with the plain text
-        const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
+        // Compare the hashed password
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (isPasswordMatch) {
             res.render("index");
         } else {
             res.send("Wrong Password");
         }
-    } catch {
-        res.send("Wrong Details");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
     }
 });
 
@@ -78,3 +81,4 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on Port: ${port}`);
 });
+
