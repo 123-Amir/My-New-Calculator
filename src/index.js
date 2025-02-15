@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const collection = require("./config");
+require('dotenv').config();
+
 
 const app = express();
 // Convert data into JSON format
