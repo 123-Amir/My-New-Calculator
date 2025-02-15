@@ -1,4 +1,21 @@
 //// *MAIN PAGE *////
+// ✅ Backend ka URL define karo (config.js me bhi ho sakta hai)
+const BACKEND_URL = "https://your-backend-url.vercel.app"; // Change this to your deployed backend URL
+
+// ✅ Login function
+async function loginUser() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch(`${BACKEND_URL}/signin`, { 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.text();
+    alert(data);
+}
 
 //Category section
 document.querySelectorAll('.category-title').forEach((button) => {
