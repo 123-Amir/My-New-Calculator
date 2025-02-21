@@ -19,6 +19,8 @@ app.set('views', path.join(__dirname, '../views')); // ✅ Render ke liye sahi p
 app.use(express.static(path.join(__dirname, '../public'))); // ✅ Public folder ka bhi sahi path
 
 // Routes
+app.use("/api", require("./routes/apiRoutes"));
+
 app.get("/", (req, res) => res.render("index"));
 app.get("/signin", (req, res) => res.render("signin"));
 app.get("/signup", (req, res) => res.render("signup"));
