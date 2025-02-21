@@ -1,3 +1,4 @@
+const BACKEND_URL = "/api"; 
 const mongoose = require("mongoose");
 require("dotenv").config();  // ✅ Load environment variables
 
