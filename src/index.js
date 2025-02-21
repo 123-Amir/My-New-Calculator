@@ -6,6 +6,13 @@ const collection = require("./config");
 require('dotenv').config();
 
 const app = express();
+// Public folder ko serve karo
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Default route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 app.use(cors());
 // Convert data into JSON format
 app.use(express.json());
