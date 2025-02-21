@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require("cors");
 const bcrypt = require('bcryptjs');
 const collection = require("./config");
 require('dotenv').config();
 
 const app = express();
-
+app.use(cors());
 // Convert data into JSON format
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
