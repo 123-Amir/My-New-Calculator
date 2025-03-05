@@ -3,7 +3,7 @@ const path = require('path');
 const cors = require("cors");
 const bcrypt = require('bcryptjs');
 const collection = require("./config");
-
+const apiRoutes = require("./routes/apiRoutes");
 require('dotenv').config();
 
 const app = express();
