@@ -3,33 +3,24 @@ const path = require('path');
 const cors = require("cors");
 const bcrypt = require('bcryptjs');
 const collection = require("./config");
-const apiRoutes = require("./routes/apiRoutes");
 
 require('dotenv').config();
 
 const app = express();
-// Public folder ko serve karo
-app.use(express.static(path.join(__dirname, '../public')));
 
-// Default route
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+// Middleware
 app.use(cors());
-// Convert data into JSON format
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Use EJS as the view engine
+// ✅ Static Files (public folder)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// ✅ View Engine Setup (EJS)
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views')); // ✅ Render ke liye sahi path
+app.set('views', path.join(__dirname, 'views'));
 
-// Static files
-app.use(express.static(path.join(__dirname, '../public'))); // ✅ Public folder ka bhi sahi path
-
-// Routes
-app.use("/api", require("./routes/apiRoutes"));
-
+// ✅ Routes (EJS Rendering)
 app.get("/", (req, res) => res.render("index"));
 app.get("/signin", (req, res) => res.render("signin"));
 app.get("/signup", (req, res) => res.render("signup"));
@@ -41,23 +32,21 @@ app.get("/health&fitness", (req, res) => res.render("health&fitness"));
 app.get("/math&algebra", (req, res) => res.render("math&algebra"));
 app.get("/geometry", (req, res) => res.render("geometry"));
 
-// Register User
+// ✅ API Routes
+app.use("/api", require("./routes/apiRoutes"));
+
+// ✅ Signup Route
 app.post("/signup", async (req, res) => {
     try {
         const { name, email, password } = req.body;
-
-        // Check if user already exists
         const existingUser = await collection.findOne({ name });
+
         if (existingUser) {
             return res.send("User already exists.");
         }
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Save user
-        const userdata = await collection.create({ name, email, password: hashedPassword });
-        console.log(userdata);
+        await collection.create({ name, email, password: hashedPassword });
         res.send("User registered successfully.");
     } catch (error) {
         console.error(error);
@@ -65,7 +54,7 @@ app.post("/signup", async (req, res) => {
     }
 });
 
-// Login user
+// ✅ Signin Route
 app.post("/signin", async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -75,7 +64,6 @@ app.post("/signin", async (req, res) => {
             return res.send("Username not found");
         }
 
-        // Compare the hashed password
         const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (isPasswordMatch) {
             res.render("index");
@@ -88,9 +76,10 @@ app.post("/signin", async (req, res) => {
     }
 });
 
-// Start server with dynamic port
+// ✅ Server Start
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on Port: ${port}`);
 });
+
 
