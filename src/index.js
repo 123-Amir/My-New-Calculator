@@ -1,3 +1,10 @@
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const express = require('express');
 const path = require('path');
 const cors = require("cors");
@@ -16,9 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 // ✅ Static Files (public folder)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ View Engine Setup (EJS)
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+// ✅ Views folder ka sahi path set karna
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // ✅ Routes (EJS Rendering)
 app.get("/", (req, res) => res.render("index"));
