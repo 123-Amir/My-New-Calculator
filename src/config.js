@@ -1,32 +1,87 @@
-const BACKEND_URL = "/api"; 
-const mongoose = require("mongoose");
-require("dotenv").config();  // ✅ Load environment variables
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const collection = require("./config");
+const apiRoutes = require("./routes/apiRoutes");
+require("dotenv").config();
 
-// MongoDB URI from environment variable
-const mongoURI = process.env.MONGODB_URI;
+const app = express();
 
-if (!mongoURI) {
-    console.error("❌ MONGODB_URI is missing in .env file!");
-    process.exit(1); // Exit if no DB URL is provided
-}
+// ✅ Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// Connect to MongoDB
-mongoose.connect(mongoURI)
-    .then(() => console.log("✅ Database connected successfully"))
-    .catch((error) => {
-        console.error("❌ Database not connected:", error);
-        process.exit(1);
-    });
+// ✅ __dirname fix for views folder
+const viewsPath = path.join(__dirname, "../views");
 
-// Schema
-const LoginSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+// ✅ Static Files (public folder)
+app.use(express.static(path.join(__dirname, "public")));
+
+// ✅ Views Engine Setup
+app.set("views", viewsPath);
+app.set("view engine", "ejs");
+
+// ✅ Routes for Rendering EJS Pages
+app.get("/", (req, res) => res.render("index"));
+app.get("/signin", (req, res) => res.render("signin"));
+app.get("/signup", (req, res) => res.render("signup"));
+app.get("/forgetpwd", (req, res) => res.render("forgetpwd"));
+app.get("/financial", (req, res) => res.render("financial"));
+app.get("/conversion", (req, res) => res.render("conversion"));
+app.get("/scientific", (req, res) => res.render("scientific"));
+app.get("/health-fitness", (req, res) => res.render("healthfitness")); // ✅ "&" hataya
+app.get("/math-algebra", (req, res) => res.render("mathalgebra")); // ✅ "&" hataya
+app.get("/geometry", (req, res) => res.render("geometry"));
+
+// ✅ API Routes
+app.use("/api", apiRoutes);
+
+// ✅ Signup Route
+app.post("/signup", async (req, res) => {
+    try {
+        const { name, email, password } = req.body;
+        const existingUser = await collection.findOne({ name });
+
+        if (existingUser) {
+            return res.send("User already exists.");
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await collection.create({ name, email, password: hashedPassword });
+        res.send("User registered successfully.");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
-// Collection
-const collection = mongoose.model("users", LoginSchema); // ✅ Collection name lowercase aur plural recommended
+// ✅ Signin Route
+app.post("/signin", async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await collection.findOne({ name: username });
 
-// Export
-module.exports = collection;
+        if (!user) {
+            return res.send("Username not found");
+        }
+
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+        if (isPasswordMatch) {
+            res.render("index");
+        } else {
+            res.send("Wrong Password");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// ✅ Server Start
+const port = process.env.PORT || 10000;
+app.listen(port, () => {
+    console.log(`Server running on Port: ${port}`);
+});
+
