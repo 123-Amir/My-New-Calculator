@@ -1,33 +1,29 @@
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 const cors = require("cors");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 const collection = require("./config");
 const apiRoutes = require("./routes/apiRoutes");
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 
-// Middleware
+// ✅ Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// ✅ Static Files (public folder)
-app.use(express.static(path.join(__dirname, 'public')));
+// ✅ Views folder ka path
+const viewsPath = path.join(__dirname, "../views");
 
-// ✅ Views folder ka sahi path set karna
-app.set("views", path.join(__dirname, "views"));
+// ✅ Static Files (public folder)
+app.use(express.static(path.join(__dirname, "public")));
+
+// ✅ Views Engine Setup
+app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
-// ✅ Routes (EJS Rendering)
+// ✅ Routes for Rendering EJS Pages
 app.get("/", (req, res) => res.render("index"));
 app.get("/signin", (req, res) => res.render("signin"));
 app.get("/signup", (req, res) => res.render("signup"));
@@ -35,12 +31,12 @@ app.get("/forgetpwd", (req, res) => res.render("forgetpwd"));
 app.get("/financial", (req, res) => res.render("financial"));
 app.get("/conversion", (req, res) => res.render("conversion"));
 app.get("/scientific", (req, res) => res.render("scientific"));
-app.get("/health&fitness", (req, res) => res.render("health&fitness"));
-app.get("/math&algebra", (req, res) => res.render("math&algebra"));
+app.get("/health-fitness", (req, res) => res.render("healthfitness")); 
+app.get("/math-algebra", (req, res) => res.render("mathalgebra")); 
 app.get("/geometry", (req, res) => res.render("geometry"));
 
 // ✅ API Routes
-app.use("/api", require("./routes/apiRoutes"));
+app.use("/api", apiRoutes);
 
 // ✅ Signup Route
 app.post("/signup", async (req, res) => {
