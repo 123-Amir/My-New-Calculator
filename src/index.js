@@ -5,8 +5,16 @@ const bcrypt = require("bcryptjs");
 const collection = require("./config");
 const apiRoutes = require("./routes/apiRoutes");
 require("dotenv").config();
+const { exec } = require("child_process");
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+// ✅ Kill old process running on the same port
+exec(`lsof -t -i:${port} | xargs kill -9`, (err) => {
+  if (err) console.log("No existing process found.");
+  else console.log(`Killed process running on port ${port}`);
+});
 
 // ✅ Middleware
 app.use(cors());
@@ -31,8 +39,8 @@ app.get("/forgetpwd", (req, res) => res.render("forgetpwd"));
 app.get("/financial", (req, res) => res.render("financial"));
 app.get("/conversion", (req, res) => res.render("conversion"));
 app.get("/scientific", (req, res) => res.render("scientific"));
-app.get("/health-fitness", (req, res) => res.render("healthfitness")); 
-app.get("/math-algebra", (req, res) => res.render("mathalgebra")); 
+app.get("/health-fitness", (req, res) => res.render("healthfitness"));
+app.get("/math-algebra", (req, res) => res.render("mathalgebra"));
 app.get("/geometry", (req, res) => res.render("geometry"));
 
 // ✅ API Routes
@@ -40,49 +48,38 @@ app.use("/api", apiRoutes);
 
 // ✅ Signup Route
 app.post("/signup", async (req, res) => {
-    try {
-        const { name, email, password } = req.body;
-        const existingUser = await collection.findOne({ name });
+  try {
+    const { name, email, password } = req.body;
+    const existingUser = await collection.findOne({ name });
 
-        if (existingUser) {
-            return res.send("User already exists.");
-        }
+    if (existingUser) return res.send("User already exists.");
 
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await collection.create({ name, email, password: hashedPassword });
-        res.send("User registered successfully.");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
-    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await collection.create({ name, email, password: hashedPassword });
+    res.send("User registered successfully.");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // ✅ Signin Route
 app.post("/signin", async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        const user = await collection.findOne({ name: username });
+  try {
+    const { username, password } = req.body;
+    const user = await collection.findOne({ name: username });
 
-        if (!user) {
-            return res.send("Username not found");
-        }
+    if (!user) return res.send("Username not found");
 
-        const isPasswordMatch = await bcrypt.compare(password, user.password);
-        if (isPasswordMatch) {
-            res.render("index");
-        } else {
-            res.send("Wrong Password");
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
-    }
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    isPasswordMatch ? res.render("index") : res.send("Wrong Password");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-// ✅ Server Start
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server running on Port: ${port}`);
-});
+// ✅ Start Server
+app.listen(port, () => console.log(`Server running on Port: ${port}`));
 
 
