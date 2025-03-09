@@ -8,7 +8,7 @@ require("dotenv").config();
 const { exec } = require("child_process");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // ✅ Kill old process running on the same port
 exec(`lsof -t -i:${port} | xargs kill -9`, (err) => {
