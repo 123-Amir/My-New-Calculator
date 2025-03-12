@@ -7,22 +7,36 @@ const apiRoutes = require("./routes/apiRoutes");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 10000; // Dynamic port support
+const port = process.env.PORT || 10000;
 
 // ✅ Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// ✅ Static Files
+// ✅ Views folder ka path
+const viewsPath = path.join(__dirname, "../views");
+
+// ✅ Static Files (public folder)
 app.use(express.static(path.join(__dirname, "public")));
 
 // ✅ Views Engine Setup
-app.set("views", path.join(__dirname, "../views"));
+app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
-// ✅ Routes
+// ✅ Routes for Rendering EJS Pages (No changes)
 app.get("/", (req, res) => res.render("index"));
+app.get("/signin", (req, res) => res.render("signin"));
+app.get("/signup", (req, res) => res.render("signup"));
+app.get("/forgetpwd", (req, res) => res.render("forgetpwd"));
+app.get("/financial", (req, res) => res.render("financial"));
+app.get("/conversion", (req, res) => res.render("conversion"));
+app.get("/scientific", (req, res) => res.render("scientific"));
+app.get("/health-fitness", (req, res) => res.render("healthfitness"));
+app.get("/math-algebra", (req, res) => res.render("mathalgebra"));
+app.get("/geometry", (req, res) => res.render("geometry"));
+
+// ✅ API Routes
 app.use("/api", apiRoutes);
 
 // ✅ Signup Route
@@ -36,6 +50,22 @@ app.post("/signup", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     await collection.create({ name, email, password: hashedPassword });
     res.send("User registered successfully.");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// ✅ Signin Route
+app.post("/signin", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await collection.findOne({ name: username });
+
+    if (!user) return res.send("Username not found");
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    isPasswordMatch ? res.render("index") : res.send("Wrong Password");
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
