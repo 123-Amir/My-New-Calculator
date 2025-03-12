@@ -4,10 +4,17 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const collection = require("./config");
 const apiRoutes = require("./routes/apiRoutes");
+const { exec } = require("child_process");
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 10000;
+
+// ✅ Pehle se chal raha process kill karo (Agar chal raha ho)
+exec(`lsof -ti:${port} | xargs kill -9`, (err, stdout, stderr) => {
+  if (err) console.error("⚠️ Process Kill Error:", stderr);
+  else console.log("✅ Old process killed successfully.");
+});
 
 // ✅ Middleware
 app.use(cors());
@@ -24,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", viewsPath);
 app.set("view engine", "ejs");
 
-// ✅ Routes for Rendering EJS Pages (No changes)
+// ✅ Routes for Rendering EJS Pages
 app.get("/", (req, res) => res.render("index"));
 app.get("/signin", (req, res) => res.render("signin"));
 app.get("/signup", (req, res) => res.render("signup"));
@@ -73,6 +80,9 @@ app.post("/signin", async (req, res) => {
 });
 
 // ✅ Start Server
-app.listen(port, () => console.log(`✅ Server running on Port: ${port}`));
+setTimeout(() => {
+  app.listen(port, () => console.log(`✅ Server running on Port: ${port}`));
+}, 2000); // 2 sec delay taaki purana process pehle kill ho
+
 
 
