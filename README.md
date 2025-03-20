@@ -5,5 +5,5 @@ Setup and Run the Project
 **1. Clone the Repository ->** git clone https://github.com/123-Amir/My-New-Calculator.git
 cd My-New-Calculator
 **2. Install Dependencies ->** npm install
-**3. Run the Server ->** node index.js 
+**3. Run the Server ->** node index.js  
 # Server will start on http://localhost:3000  
