@@ -22,7 +22,7 @@ An all-in-one responsive and smart calculator web application built using **Node
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/All-in-One-Calculator.git
+git clone https://github.com/123-Amir/My-New-Calculator.git
 cd All-in-One-Calculator
 npm install
 npm start
